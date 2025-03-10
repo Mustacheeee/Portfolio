@@ -13,6 +13,6 @@ def generate_skills():
 
 if __name__ == "__main__":
     skills = generate_skills()
-    with open('../frontend/public/mock_skills.json', 'w') as f:
+    with open('data-story-portfolio/frontend/public/mock_skills.json', 'w') as f:
         json.dump(skills, f, indent=2)
     print("Mock data generated successfully! YAY!")

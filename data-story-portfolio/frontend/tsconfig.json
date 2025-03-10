@@ -5,11 +5,17 @@
   //   { "path": "./tsconfig.node.json" }
   // ]
   "compilerOptions": {
+    "jsx": "react-jsx",  // Enable JSX support
+    "module": "ESNext",   // Use modern module system
+    "target": "ES6",      // Target modern JavaScript
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],  // Include necessary libraries
+    "moduleResolution": "node",
+    "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
       "@shared/*": ["../shared/*"]
     }
-  }
-
+  },
+  "include": ["src"]
 }
 

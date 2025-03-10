@@ -1,0 +1,92 @@
+[
+  {
+    "name": "TensorFlow",
+    "proficiency": 0.7172114658610519,
+    "projects": [
+      "e859ec12-fade-402a-b136-d7f89c600ec7",
+      "0f40b60e-e3dc-44d3-bd9f-c5fdf068f14a",
+      "06ec402d-acc7-454f-ad92-f20ab3d23273"
+    ]
+  },
+  {
+    "name": "TensorFlow",
+    "proficiency": 0.5219560727750248,
+    "projects": [
+      "b3242eb2-1ca7-46ca-ba2b-0f671907a761",
+      "f1584577-a9ad-4d12-80f3-8669f12b4c83",
+      "811194f8-d515-4ebe-b615-4d5017638c26"
+    ]
+  },
+  {
+    "name": "PyTorch",
+    "proficiency": 0.5901260256634686,
+    "projects": [
+      "1d6fc4db-d16d-4f35-9b81-9778ddbffe79",
+      "e22639ec-c6ba-4986-8fa8-45d3fb8e2cdc",
+      "2b67b73e-e3b0-4a55-8da1-9d7efc5daf30"
+    ]
+  },
+  {
+    "name": "React",
+    "proficiency": 0.9172902246115,
+    "projects": [
+      "4643d6b0-c795-47e8-ab7e-793659112ad2",
+      "9c247441-a434-4f19-9473-c6da5538fe94",
+      "c36416d2-0959-42ea-b412-28e4a266cf16"
+    ]
+  },
+  {
+    "name": "PyTorch",
+    "proficiency": 0.9025011731287889,
+    "projects": [
+      "98a011c5-f435-4bd9-91e5-4899c25ea6d4",
+      "a3ecc2ce-3970-4828-a86e-d6a9f4e13b99",
+      "709af5a0-6952-4168-9edd-b215c45292fe"
+    ]
+  },
+  {
+    "name": "PyTorch",
+    "proficiency": 0.34517261308690433,
+    "projects": [
+      "9eee3898-fec7-475f-a33a-c75804551f2f",
+      "5bea6586-2c81-4623-87b6-a6f5af1e6b94",
+      "71749d5f-3bf1-42fe-a4c7-94b686c6ecd7"
+    ]
+  },
+  {
+    "name": "TensorFlow",
+    "proficiency": 0.3713773442599767,
+    "projects": [
+      "fab6b90b-c37d-4e64-8bcf-18177dc1483a",
+      "ba992e0b-2e84-4c42-b79e-fe0621ced380",
+      "20613b4c-8a66-426f-aac6-05ec6fb543b8"
+    ]
+  },
+  {
+    "name": "PyTorch",
+    "proficiency": 0.531542162001021,
+    "projects": [
+      "c8ba1f2e-769d-415a-a3e9-eedcbacec54a",
+      "a2a1071c-43bc-482e-a885-0ea792f7f000",
+      "1df8455c-0048-4b87-a29d-d8be6f4f4399"
+    ]
+  },
+  {
+    "name": "TensorFlow",
+    "proficiency": 0.6374808636426306,
+    "projects": [
+      "4086ed1d-c5cb-4750-bb1d-8f956a63ebd8",
+      "0bf6d006-9819-4e57-95f0-729b7c149349",
+      "bcb29dec-ef65-4555-80e6-6a4b0b23b843"
+    ]
+  },
+  {
+    "name": "PyTorch",
+    "proficiency": 0.653623670123332,
+    "projects": [
+      "57618f62-7877-4a5c-b770-2921f6821597",
+      "23d94589-b730-4d9f-b11e-0a296286f757",
+      "f15977c5-822a-4707-840f-b52ac40a68ed"
+    ]
+  }
+]

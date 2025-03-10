@@ -30,6 +30,14 @@ const SkillChart = () => {
       .then((data) => setSkills(data));
   }, []);
 
+  // May remove the career advice feature
+  // const handleGetAdvice = async (skill: string) => {
+  //   const response = await fetch(`/api/advice?skill=${skill}`);
+  //   const advice = await response.text();
+  //   alert(advice);
+  // };
+  
+
   const data = {
     labels: skills.map((s) => s.name),
     datasets: [{
@@ -40,7 +48,14 @@ const SkillChart = () => {
     }]
   };
 
-  return <Radar data={data} />;
+  return (
+    <div>
+      <Radar data={data} />;
+      {/* <button onClick={() => handleGetAdvice(skill.name)}>Get Advice</button> */}
+    </div>
+  );
+
 };
 
 export default SkillChart;
+

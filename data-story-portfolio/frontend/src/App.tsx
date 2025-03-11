@@ -1,40 +1,45 @@
-import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-import './App.css'
-import SkillChart from './components/SkillChart';
+import React from 'react';
+import PersonalInfo from './components/PersonalInfo';
+import ProjectCard from './components/ProjectCard';
+import { Project } from '@shared/types';
+import './App.css';
+import Navbar from './components/Navbar';
+import AIChat from './components/AIChat';
+
+
+const projects: Project[] = [
+  {
+    id: '1',
+    title: 'AI Career Advisor',
+    description: 'An AI-powered tool to provide career advice based on skill gaps.',
+    technologies: ['React', 'FastAPI', 'OpenAI'],
+    demoUrl: 'https://your-demo-link.com',
+    codeUrl: 'https://github.com/your-username/ai-career-advisor',
+  },
+  {
+    id: '2',
+    title: 'Data Visualization Dashboard',
+    description: 'A dashboard to visualize complex datasets using interactive charts.',
+    technologies: ['D3.js', 'TypeScript', 'Node.js'],
+    demoUrl: 'https://your-demo-link.com',
+    codeUrl: 'https://github.com/your-username/data-dashboard',
+  },
+];
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      {/* <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div> */}
-      <div className="App">
-        <h1>My Data-Driven Portfolio</h1>
-        <SkillChart />
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="App">
+      <Navbar />
+      <PersonalInfo />
+      <AIChat />
+      <section>
+        <h2>Projects</h2>
+        {projects.map((project) => (
+          <ProjectCard key={project.id} project={project} />
+        ))}
+      </section>
+    </div>
+  );
 }
 
-export default App
+export default App;

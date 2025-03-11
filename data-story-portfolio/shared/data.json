@@ -1,0 +1,40 @@
+{
+  "name": "Your Name",
+  "location": "Your City, Country",
+  "email": "your.email@example.com",
+  "education": [
+    {
+      "degree": "Bachelor of Science in Computer Science",
+      "university": "Your University",
+      "graduationYear": 2023
+    }
+  ],
+  "skills": [
+    "React", "Python", "Machine Learning", "Data Visualization"
+  ],
+  "projects": [
+    {
+      "title": "AI Career Advisor",
+      "description": "An AI-powered tool to provide career advice based on skill gaps.",
+      "technologies": ["React", "FastAPI", "OpenAI"]
+    },
+    {
+      "title": "Data Visualization Dashboard",
+      "description": "A dashboard to visualize complex datasets using interactive charts.",
+      "technologies": ["D3.js", "TypeScript", "Node.js"]
+    }
+  ],
+  "workExperience": [
+    {
+      "company": "Your Previous Company",
+      "role": "Software Engineer Intern",
+      "duration": "June 2022 - August 2022",
+      "responsibilities": [
+        "Developed REST APIs using Flask",
+        "Implemented data pipelines with Apache Airflow"
+      ]
+    }
+  ],
+  "careerGoals": "I aim to become a full-stack developer specializing in AI-driven applications.",
+  "interests": ["Machine Learning", "Open Source", "Data Science"]
+}

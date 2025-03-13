@@ -8,7 +8,8 @@ const PersonalInfo = () => {
         alt="Your Name"
         className="profile-pic"
       />
-      <h1>Your Name</h1>
+      <h1>Yixin Zhao</h1>
+      <h1>Fiona</h1>
       <p className="tagline">Data Enthusiast | Full-Stack Developer | AI Explorer</p>
       <div className="contact-info">
         <a href="mailto:your.email@example.com">your.email@example.com</a>

@@ -33,7 +33,7 @@ function App() {
       <PersonalInfo />
       <AIChat />
       <section>
-        <h2>Projects</h2>
+        {/* <h2>Project</h2> */}
         {projects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}

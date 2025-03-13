@@ -1,5 +1,5 @@
 {
-  "name": "Your Name",
+  "name": "Fiona",
   "location": "Your City, Country",
   "email": "your.email@example.com",
   "education": [
@@ -9,9 +9,11 @@
       "graduationYear": 2023
     }
   ],
-  "skills": [
-    "React", "Python", "Machine Learning", "Data Visualization"
-  ],
+  "skills": {
+    "Programming Languages": ["Python", "JavaScript"],
+    "Frameworks": ["React", "FastAPI"],
+    "Tools": ["Git", "Docker"]
+  },
   "projects": [
     {
       "title": "AI Career Advisor",
@@ -22,6 +24,12 @@
       "title": "Data Visualization Dashboard",
       "description": "A dashboard to visualize complex datasets using interactive charts.",
       "technologies": ["D3.js", "TypeScript", "Node.js"]
+    },
+    {
+      "name": "AI-Powered Resume Analyzer",
+      "description": "A natural language processing system for resume analysis",
+      "technologies": ["Python", "spaCy", "React"],
+      "achievement": "Improved accuracy by 30%"
     }
   ],
   "workExperience": [

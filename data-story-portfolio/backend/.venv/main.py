@@ -1,55 +1,55 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-import openai
+import requests
 import json
 from pathlib import Path
 
-# Load data
+# Load your data
 data_path = Path(__file__).parent.parent / "../shared/data.json"
-try:
-    with open(data_path, "r") as f:
-        personal_data = json.load(f)
-except FileNotFoundError:
-    print(f"Error: File not found at {data_path.absolute()}")
-    print("1. Create a 'shared' folder in project root")
-    print("2. Add data.json with your personal info")
-    exit(1)
-print("Looking for file at:", data_path.absolute())
-
+with open(data_path, "r") as f:
+    personal_data = json.load(f)
 
 # Initialize FastAPI
 app = FastAPI()
 
-# Set up OpenAI
-openai.api_key = "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"
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # 生产环境应限制域名
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# 从环境变量获取 API Key
+import os
+HF_API_KEY = os.getenv("HF_API_KEY", "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")  # 替换为你的实际 Key
 
 class Question(BaseModel):
     text: str
 
 @app.post("/ask")
-def ask_question(question: Question):
+async def ask_question(question: Question):
     try:
-        # Create a prompt with your data
-        prompt = f"""
-        You are a virtual representative of {personal_data['name']}, a computer science graduate.
-        Your task is to answer questions about {personal_data['name']}'s skills, projects, and experiences.
-        Here is some information about {personal_data['name']}:
-        - Skills: {', '.join(personal_data['skills'])}
-        - Projects: {json.dumps(personal_data['projects'], indent=2)}
-        - Work Experience: {json.dumps(personal_data['workExperience'], indent=2)}
-        - Career Goals: {personal_data['careerGoals']}
-        - Interests: {', '.join(personal_data['interests'])}
-
-        Answer the following question: {question.text}
-        """
-
-        # Get response from OpenAI
-        response = openai.ChatCompletion.create(
-            model="gpt-4",
-            messages=[{"role": "system", "content": prompt}]
-        )
-
-        return {"answer": response.choices[0].message.content}
+        # 调用 Hugging Face 的 Mistral 7B 模型
+        API_URL = "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.2"
+        headers = {"Authorization": f"Bearer {HF_API_KEY}"}
+        
+        # 构建符合模型要求的输入格式
+        payload = {
+            "inputs": f"[INST] {question.text} [/INST]",
+            "parameters": {
+                "max_new_tokens": 200,
+                "temperature": 0.7
+            }
+        }
+        
+        response = requests.post(API_URL, headers=headers, json=payload)
+        response.raise_for_status()  # 检查 HTTP 错误
+        
+        result = response.json()
+        return {"answer": result[0]['generated_text']}
+        
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

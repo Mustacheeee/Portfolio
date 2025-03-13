@@ -5,13 +5,19 @@ const AIChat = () => {
   const [answer, setAnswer] = useState('');
 
   const handleAsk = async () => {
-    const response = await fetch('http://localhost:8000/ask', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text: question }),
-    });
-    const data = await response.json();
-    setAnswer(data.answer);
+    try {
+      const response = await fetch('http://localhost:8000/ask', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text: question }),
+      });
+      
+      const data = await response.json();
+      setAnswer(data.answer);
+    } catch (error) {
+      console.error('Error:', error);
+      setAnswer("抱歉，暂时无法获取回答");
+    }
   };
 
   return (

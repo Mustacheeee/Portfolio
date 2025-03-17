@@ -10,7 +10,12 @@
     "target": "ES6",      // Target modern JavaScript
     "lib": ["DOM", "DOM.Iterable", "ESNext"],  // Include necessary libraries
     "moduleResolution": "node",
+    "allowJs": true,
+    "skipLibCheck": true,
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
       "@shared/*": ["../shared/*"]

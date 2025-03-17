@@ -4,7 +4,7 @@ const PersonalInfo = () => {
   return (
     <div className="personal-info">
       <img 
-        src="/profile.jpg"  // Place your profile picture in `public/` folder
+        src="/mypic.jpg"  // Place your profile picture in `public/` folder
         alt="Your Name"
         className="profile-pic"
       />

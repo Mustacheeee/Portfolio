@@ -27,6 +27,7 @@ const projects: Project[] = [
 ];
 
 function App() {
+  console.log('App rendered');
   return (
     <div className="App">
       <Navbar />

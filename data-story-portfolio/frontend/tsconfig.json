@@ -5,22 +5,25 @@
   //   { "path": "./tsconfig.node.json" }
   // ]
   "compilerOptions": {
-    "jsx": "react-jsx",  // Enable JSX support
+    "jsx": "react-jsx",
     "module": "ESNext",   // Use modern module system
     "target": "ES6",      // Target modern JavaScript
     "lib": ["DOM", "DOM.Iterable", "ESNext"],  // Include necessary libraries
     "moduleResolution": "node",
-    "allowJs": true,
     "skipLibCheck": true,
+    "resolveJsonModule": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
+    "allowJs": true,
+    "noEmit": true,
     "baseUrl": ".",
-    "paths": {
-      "@shared/*": ["../shared/*"]
-    }
+    // "paths": {
+    //   "@shared/*": ["../shared/*"]
+    // }
   },
-  "include": ["src"]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.js", "src/**/*.jsx"],
+  "exclude": ["styles.ts"]
 }
 

@@ -28,7 +28,7 @@ const Navbar = () => {
   const navLinks = [
     {
       id: "personalInfo",
-      title: "personalInfo",
+      title: "About",
     },
     {
       id: "projects",
@@ -42,7 +42,7 @@ const Navbar = () => {
 
   return (
     <nav className="navbr">
-      <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
+      <div className='w-full flex flex-wrap justify-between items-center max-w-7xl mx-auto'>
         <Link
           to='/'
           className='flex items-center gap-2'

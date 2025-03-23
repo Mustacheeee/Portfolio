@@ -48,13 +48,22 @@ const PersonalInfo = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <h2 className="font-black text-white lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2">Overview</h2>
+        <h2 className="text-white font-black md:text-[60px] xl:ml-0 sm:text-[50px] sm:ml-3 xs:text-[40px] text-[30px] xs:ml-3">Overview</h2>
       </motion.div>
 
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
-        className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
+        className='mt-4 flex text-secondary xl:flex-nowrap xs:flex-wrap text-[17px] leading-[30px] sm:mx-3 xs:mx-3'
       >
+        <div className="personal-info mr-10 sm:w-1/2 xs:w-1/2">
+          <img 
+            src="/mypic.jpg"
+            alt="Your Name"
+            className="profile-pic"
+          />
+          <h1>Yixin Zhao</h1>
+          <h1>Fiona</h1>
+        </div>
         [TODO]
         I'm a skilled software developer with experience in TypeScript and
         JavaScript, and expertise in frameworks like React, Node.js, and
@@ -63,7 +72,7 @@ const PersonalInfo = () => {
         real-world problems. Let's work together to bring your ideas to life!
       </motion.p>
 
-      <div className='mt-20 flex flex-wrap gap-10'>
+      <div className='mt-20 flex flex-wrap gap-10 justify-center'>
         {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
         ))}

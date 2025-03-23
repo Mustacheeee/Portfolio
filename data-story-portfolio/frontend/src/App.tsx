@@ -8,6 +8,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import AIChat from './components/AIChat';
 import { BrowserRouter } from "react-router-dom";
+import Tech from './components/Tech';
 
 
 
@@ -39,6 +40,7 @@ function App() {
           <Landing />
         </div>
         <PersonalInfo />
+        <Tech />
         {/* <AIChat /> */}
         <section>
         {/* {projects.map((project) => (

@@ -249,22 +249,23 @@
   color: #888;
 }
 
+*/
 .personal-info {
   text-align: center;
+  align-self: center;
   padding: 2rem;
   background-color: #f9f9f9;
   border-radius: 10px;
   margin-bottom: 2rem;
 }
-
 .profile-pic {
-  width: 150px;
+  width: 308rem;
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 1rem;
 }
-
+/*
 .tagline {
   font-size: 1.2rem;
   color: #555;

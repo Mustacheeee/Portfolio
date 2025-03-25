@@ -9,27 +9,9 @@ import Navbar from './components/Navbar';
 import AIChat from './components/AIChat';
 import { BrowserRouter } from "react-router-dom";
 import Tech from './components/Tech';
+import { StarsCanvas } from './components/canvas';
+import Contact from './components/Contact';
 
-
-
-// const projects: Project[] = [
-//   {
-//     id: '1',
-//     title: 'AI Career Advisor',
-//     description: 'An AI-powered tool to provide career advice based on skill gaps.',
-//     technologies: ['React', 'FastAPI', 'OpenAI'],
-//     demoUrl: 'https://your-demo-link.com',
-//     codeUrl: 'https://github.com/your-username/ai-career-advisor',
-//   },
-//   {
-//     id: '2',
-//     title: 'Data Visualization Dashboard',
-//     description: 'A dashboard to visualize complex datasets using interactive charts.',
-//     technologies: ['D3.js', 'TypeScript', 'Node.js'],
-//     demoUrl: 'https://your-demo-link.com',
-//     codeUrl: 'https://github.com/your-username/data-dashboard',
-//   },
-// ];
 
 function App() {
   return (
@@ -40,13 +22,15 @@ function App() {
           <Landing />
         </div>
         <PersonalInfo />
-        <Tech />
-        {/* <AIChat /> */}
-        <section>
-        {/* {projects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
-          ))} */}
-          </section>
+        <div className='relative z-0'>
+          <Tech />
+          <StarsCanvas />
+        </div>
+        <ProjectCard />
+        <AIChat />
+        <div className='bg-connect-pattern bg-cover bg-no-repeat bg-center'>
+          <Contact />
+        </div>
       </div>
     </BrowserRouter>
   );

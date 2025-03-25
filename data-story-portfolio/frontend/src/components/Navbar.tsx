@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 
 import menu from "../assets/menu.svg";
 import close from "../assets/close.svg";
-import { HiMenuAlt2 } from "react-icons/hi";
+import { styles } from "../../styles.js";
+
 
 const Navbar = () => {
   const [active, setActive] = useState("");
@@ -28,21 +29,27 @@ const Navbar = () => {
   const navLinks = [
     {
       id: "personalInfo",
-      title: "About",
+      title: "ABOUT",
     },
     {
-      id: "projects",
-      title: "projects",
+      id: "projectcard",
+      title: "PROJECT",
     },
     {
       id: "contact",
-      title: "Contact",
+      title: "CONTACT",
     },
   ];
 
   return (
-    <nav className="navbr">
-      <div className='w-full flex flex-wrap justify-between items-center max-w-7xl mx-auto'>
+    <nav
+      className={`${
+        styles.paddingX
+      } w-full flex items-center py-5 fixed top-0 z-20 ${
+        scrolled ? "bg-primary" : "bg-transparent"
+      }`}
+    >
+      <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
         <Link
           to='/'
           className='flex items-center gap-2'
@@ -51,23 +58,21 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <p className='text-white text-[18px] font-bold cursor-pointer flex '>
-             FIONA
+          <p className='text-mywhite text-[18px] font-bold cursor-pointer flex '>
+            Fiona
           </p>
         </Link>
 
-        {/* <ul className='list-none hidden flex flex-row'> */}
-        <ul className='list-none flex flex-row gap-10'>
+        <ul className='list-none hidden sm:flex flex-row gap-10'>
           {navLinks.map((nav) => (
             <li
               key={nav.id}
               className={`${
-                active === nav.title 
-                ? "text-white" : "text-secondary"
-              } hover:text-blue text-[18px] font-medium cursor-pointer`}
+                active === nav.title ? "text-tertiary" : "text-secondary"
+              } hover:text-highlight text-[18px] font-medium cursor-pointer`}
               onClick={() => setActive(nav.title)}
             >
-              <a className="menu" href={`#${nav.id}`}>{nav.title}</a>
+              <a href={`#${nav.id}`}>{nav.title}</a>
             </li>
           ))}
         </ul>
@@ -90,7 +95,7 @@ const Navbar = () => {
                 <li
                   key={nav.id}
                   className={`font-poppins font-medium cursor-pointer text-[16px] ${
-                    active === nav.title ? "text-white" : "text-secondary"
+                    active === nav.title ? "text-tertiary" : "text-secondary"
                   }`}
                   onClick={() => {
                     setToggle(!toggle);

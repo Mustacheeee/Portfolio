@@ -3,7 +3,6 @@ import { fadeIn, textVariant } from "../constants/motion.js";
 import { motion } from "framer-motion";
 import { SectionWrapper } from "src/hoc/index.js";
 
-
 const AIChat = () => {
   const [question, setQuestion] = useState('');
   const [answer, setAnswer] = useState('');
@@ -35,18 +34,18 @@ const AIChat = () => {
         variants={fadeIn("", "", 0.1, 1)}
         className='mt-20 mb-48 min-h-80 text-secondary text-[17px] leading-[30px] sm:mx-3 xs:mx-3'
       >
-        <div className="bg-tertiary p-8 rounded-2xl shadow-card w-full max-w-3xl mx-auto">
+        <div className="bg-tertiary p-8 rounded-2xl shadow-bigyellow shadow-md w-full max-w-3xl mx-auto">
           <div className="flex sm:flex-row xs:flex-col mb-6">
             <input
               type="text"
               value={question}
               onChange={(e) => setQuestion(e.target.value)}
-              placeholder="Ask a question about me..."
-              className="bg-black/20 py-4 px-6 placeholder:text-secondary text-mywhite rounded-lg outline-none border-none font-medium flex-1 sm:mr-3 xs:mb-3 sm:mb-0"
+              placeholder="Ask any question about me..."
+              className="bg-black/20 py-4 px-6 placeholder:text-secondary placeholder:font-title text-mywhite font-body rounded-lg outline-none border-none font-medium flex-1 sm:mr-3 xs:mb-3 sm:mb-0"
             />
             <button 
               onClick={handleAsk}
-              className="bg-bigyellow from-purple-500 to-cyan-500 py-3 px-8 outline-none w-fit text-black font-bold shadow-md shadow-primary rounded-xl"
+              className="bg-bigyellow from-purple-500 to-cyan-500 py-3 px-8 outline-none w-fit text-black font-bold shadow-md shadow-secondary hover:bg-primary hover:text-highlight transition-all duration-300 rounded-xl"
             >
               Ask
             </button>

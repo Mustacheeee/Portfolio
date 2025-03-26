@@ -6,7 +6,7 @@ module.exports = {
     extend: {
       fontFamily: {
         'title': ['"Rubik Mono One"', 'monospace'], // For bold, distinctive titles
-        'body': ['"Rubik"', 'sans-serif'] 
+        'body': ['"Rubik"', 'sans-serif']
       },
       colors: {
         primary: "#000000", // bg

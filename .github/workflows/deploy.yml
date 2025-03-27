@@ -4,11 +4,10 @@ on:
   push:
     branches: [main]
 
-# Add these permissions
 permissions:
-  contents: write  # Allow writing to the repository
-  pages: write    # Allow deploying to GitHub Pages
-  id-token: write # Additional authorization for GitHub Pages
+  contents: write
+  pages: write
+  id-token: write
 
 jobs:
   build-and-deploy:
@@ -22,16 +21,15 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Prepare dependencies
+      - name: Remove fsevents from package-lock.json
         run: |
           cd data-story-portfolio/frontend
-          npm pkg delete fsevents
-          sed -i '/fsevents/d' package-lock.json || true
+          sed -i '/fsevents/d' package-lock.json
 
       - name: Install dependencies
         run: |
           cd data-story-portfolio/frontend
-          npm ci --ignore-platform --legacy-peer-deps --no-optional
+          npm ci --legacy-peer-deps --no-optional
 
       - name: Build
         run: |
@@ -39,6 +37,7 @@ jobs:
           npm run build
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          artifact_name: dist
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./data-story-portfolio/frontend/dist

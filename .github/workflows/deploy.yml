@@ -16,11 +16,16 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Remove fsevents and install dependencies
+      - name: Clean and Prepare
         run: |
           cd data-story-portfolio/frontend
-          npm pkg delete fsevents
-          npm ci --ignore-platform --legacy-peer-deps
+          rm -rf node_modules
+          rm -f package-lock.json
+
+      - name: Install dependencies
+        run: |
+          cd data-story-portfolio/frontend
+          npm install --ignore-platform --legacy-peer-deps --no-optional
 
       - name: Build
         run: |
@@ -28,6 +33,7 @@ jobs:
           npm run build
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          artifact_name: dist
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./data-story-portfolio/frontend/dist

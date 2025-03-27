@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: |
           cd data-story-portfolio/frontend
-          npm ci --ignore-platform
+          npm ci --ignore-platform --legacy-peer-deps
 
       - name: Build
         run: |

@@ -13,7 +13,7 @@ export default defineConfig(async () => {
     }), tsconfigPaths()],
     build: {
       rollupOptions: {
-        // Remove the external configuration
+        // Any specific build configurations
       },
     },
     resolve: {

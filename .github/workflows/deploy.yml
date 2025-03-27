@@ -18,16 +18,17 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd frontend
+          cd data-story-portfolio/frontend
           npm ci
 
       - name: Build
         run: |
-          cd frontend
+          cd data-story-portfolio/frontend
           npm run build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./frontend/build
+          publish_dir: ./data-story-portfolio/frontend/dist
+          cname: mustacheeee.github.io # Optional: if you have a custom domain

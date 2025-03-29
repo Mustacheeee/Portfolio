@@ -59,7 +59,7 @@ const Navbar = () => {
           }}
         >
           <p className='text-mywhite text-[18px] font-bold cursor-pointer flex '>
-            Fiona
+            Yixin|Fiona
           </p>
         </Link>
 

@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 import os
 import time
+import re
 from typing import Dict, Any
 
 # --- Enhanced Data Loading ---
@@ -39,26 +40,52 @@ HF_API_KEY = os.getenv("HF_API_KEY", "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")
 
 # --- Core Prompt Template ---
 PROMPT_TEMPLATE = """[INST]
-You are my AI-powered job search assistant. Your task is to answer recruiter questions based on my personal profile. Always:
+You are a professional AI assistant helping recruiters understand Fiona's professional profile. 
 
-1. Use a professional yet friendly tone.
-2. Provide specific examples from my projects to demonstrate skills.
-3. When comparing technologies, showcase analytical thinking.
+Rules for response:
+1. Be clear and concise
+2. Highlight key professional attributes
+3. Provide specific, relevant information
+4. Keep responses professional and under 100 words
+5. Focus on skills, experience, and value proposition
 
-My personal information:
+My professional profile:
 {personal_info}
 
 Current question:
 {question}
 
-Please structure your answer as follows:
-【Key Points】Summarize the answer in 3 bullet points.
-【Detailed Explanation】Elaborate on each point step-by-step.
-【Project Examples】Reference relevant projects and achievements.
+Response format:
+- Be direct and informative
+- Use professional language
+- Emphasize unique professional strengths
 [/INST]"""
+
+# --- Greeting Template (without bullet points) ---
+GREETING_RESPONSE = """Hello! I'm Fiona's AI assistant. You can ask me about my technical skills and programming languages, work experience and projects, education and certifications, areas of expertise, or why I would be a good fit for your team. How can I help you today?"""
 
 class Question(BaseModel):
     text: str
+
+# --- Function to detect greetings ---
+def is_greeting(text: str) -> bool:
+    greeting_patterns = [
+        r'\b(?:hi|hello|hey|greetings|howdy|hi there|hola|good morning|good afternoon|good evening)\b',
+        r'^(?:yo|sup|what\'s up|wassup)$'
+    ]
+    
+    # Convert to lowercase and check against patterns
+    text_lower = text.lower().strip()
+    
+    for pattern in greeting_patterns:
+        if re.search(pattern, text_lower):
+            return True
+        
+    # Check if very short question (likely a greeting)
+    if len(text_lower.split()) <= 2 and len(text_lower) < 10:
+        return True
+        
+    return False
 
 # --- API Call with Retry Mechanism ---
 def query_hf_api(payload: Dict, retries: int = 3) -> Dict:
@@ -87,7 +114,10 @@ def query_hf_api(payload: Dict, retries: int = 3) -> Dict:
 @app.post("/ask")
 async def ask_question(question: Question):
     try:
-        # Build the prompt
+        # Check if the input is a greeting
+        if is_greeting(question.text):
+            return {"answer": GREETING_RESPONSE}
+        
         formatted_prompt = PROMPT_TEMPLATE.format(
             personal_info=json.dumps(personal_data, ensure_ascii=False),
             question=question.text
@@ -96,25 +126,24 @@ async def ask_question(question: Question):
         payload = {
             "inputs": formatted_prompt,
             "parameters": {
-                "max_new_tokens": 500,  # Limit response length
-                "temperature": 0.3,     # Reduce randomness
-                "repetition_penalty": 1.2,  # Avoid repetition
-                "top_p": 0.95           # Focus on high-probability words
+                "max_new_tokens": 200,  # Reduce max tokens
+                "temperature": 0.2,     # Make response more focused
+                "top_p": 0.9            # Maintain coherence
             }
         }
         
         result = query_hf_api(payload)
         
-        if not result:
-            raise HTTPException(status_code=500, detail="API response empty")
-            
-        # Parse the response
+        # Remove any formatting markers, limit length
         raw_answer = result[0]['generated_text'].split("[/INST]")[-1].strip()
+        raw_answer = raw_answer.replace("【Key Points】", "").replace("【Detailed Explanation】", "").strip()
+        raw_answer = raw_answer.replace("【Project Examples】", "").strip()
         
         return {"answer": raw_answer}
         
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        print(f"Error processing question: {e}")  # Server-side logging
+        return {"answer": "I apologize, but I couldn't process your question at the moment."}
 
 if __name__ == "__main__":
     import uvicorn

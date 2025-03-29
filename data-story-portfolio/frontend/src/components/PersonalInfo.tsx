@@ -32,7 +32,7 @@ const Button: React.FC<ButtonProps> = ({
           relative 
           flex items-center justify-center 
           gap-2 
-          px-4 py-[0.8em] 
+          px-4 py-[0.4em] 
           text-[#F8DF51] 
           text-[15px] 
           border-none 
@@ -77,47 +77,6 @@ const Button: React.FC<ButtonProps> = ({
   );
 };
 
-// const StyledLink = styled.a`
-//   padding: 0.8em 1em;
-//   border: none;
-//   border-radius: 5px;
-//   letter-spacing: 2px;
-//   cursor: pointer;
-//   color: bigyellow;
-//   transition: all 1000ms;
-//   font-size: 15px;
-//   position: relative;
-//   overflow: hidden;
-//   outline: 2px solid #F8DF51;
-//   text-decoration: none;
-//   display: inline-block;
-//   text-align: center;
-
-//   &:hover {
-//     color: #fbec04;
-//     transform: scale(1.1);
-//     outline: 2px solid #F8DF51;
-//     box-shadow: 4px 5px 17px -4px #FBEC04;
-//   }
-
-//   &::before {
-//     content: "";
-//     position: absolute;
-//     left: -50px;
-//     top: 0;
-//     width: 0;
-//     height: 100%;
-//     background-color: #979c04;
-//     transform: skewX(45deg);
-//     z-index: -1;
-//     transition: width 1000ms;
-//   }
-
-//   &:hover::before {
-//     width: 250%;
-//   }
-// `;
-
 const StyledWrapper = styled.div`
   display: inline-block;
 `;
@@ -141,23 +100,26 @@ const PersonalInfo = () => {
         variants={fadeIn("", "", 0.1, 1)}
         className='mt-4 flex text-secondary xl:flex-nowrap xs:flex-wrap text-[17px] leading-[30px] sm:mx-3 xs:mx-3'
       >
-        <div className="personal-info bg-bigyellow mr-10 sm:w-1/2 xs:w-1/2">
+        <div className="personal-info bg-bigyellow mr-10 sm:w-1/3 xs:w-1/2">
           <img 
             src="/mypic.jpg"
             alt="Your Name"
             className="profile-pic"
           />
-          <h1>Yixin Zhao</h1>
-          <h1>Fiona</h1>
+          <h1 className="text-primary">Yixin Zhao</h1>
+          <h1 className="text-primary">(Fiona)</h1>
         </div>
-        <div className="flex-col font-body">
-          [TODO]
-          I'm a skilled software developer with experience in TypeScript and
-          JavaScript, and expertise in frameworks like React, Node.js, and
-          Three.js. I'm a quick learner and collaborate closely with clients to
-          create efficient, scalable, and user-friendly solutions that solve
-          real-world problems. Let's work together to bring your ideas to life!
-          <div className="flex py-5 gap-4 font-body body-lowercase">
+        <div className="flex-col font-body tracking-wide">
+          Hi, I'm Fiona, 
+          a recent Computer Science graduate from the University of Central Florida, 
+          eager to bring my passion for software development and artificial intelligence into t
+          he tech industry. With expertise in Java, Python, C++, and JavaScript, along with 
+          experience in full-stack development, machine learning, and robotics, I am ready 
+          to contribute to innovative projects. My background includes developing AI-driven 
+          models, building web applications, and working with frameworks like TensorFlow and React. 
+          I thrive in collaborative environments and am actively seeking a full-time software engineering 
+          role where I can apply my skills and grow as a developer. Feel free to explore my projects and connect with me!
+          <div className="flex py-4 gap-4 font-body body-lowercase">
             <Button
             label="LinkedIn"
             href="https://www.linkedin.com/in/yixin-zhao-/"
@@ -188,25 +150,6 @@ const PersonalInfo = () => {
       </div>
 
     </>
-    // <div className="personal-info">
-    //   <img 
-    //     src="/mypic.jpg"
-    //     alt="Your Name"
-    //     className="profile-pic"
-    //   />
-    //   <h1>Yixin Zhao</h1>
-    //   <h1>Fiona</h1>
-    //   <p className="tagline">Data Enthusiast | Full-Stack Developer | AI Explorer</p>
-    //   <div className="contact-info">
-    //     <a href="mailto:your.email@example.com">your.email@example.com</a>
-    //     <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer">
-    //       LinkedIn
-    //     </a>
-    //     <a href="https://github.com/your-username" target="_blank" rel="noopener noreferrer">
-    //       GitHub
-    //     </a>
-    //   </div>
-    // </div>
   );
 };
 

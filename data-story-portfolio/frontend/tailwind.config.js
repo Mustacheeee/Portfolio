@@ -8,6 +8,9 @@ module.exports = {
         'title': ['"Rubik Mono One"', 'monospace'], // For bold, distinctive titles
         'body': ['"Rubik"', 'sans-serif']
       },
+      fontWeight: {
+        body: '500',
+      },
       colors: {
         primary: "#000000", // bg
         secondary: "#fbd509", // sub txt

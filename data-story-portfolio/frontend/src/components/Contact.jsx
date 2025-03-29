@@ -113,13 +113,13 @@ const Contact = () => {
               value={form.message}
               onChange={handleChange}
               placeholder='What you want to say?'
-              className='bg-mywhite py-4 px-6 placeholder:text-tertiary placeholder:font-title text-primary font-body rounded-lg outline-none border-none font-medium focus:ring-2 focus:ring-mywhite/20 transition-all duration-300'
+              className='bg-mywhite py-4 px-6 placeholder:text-tertiary tracking-wide placeholder:font-title text-primary font-body rounded-lg outline-none border-none font-medium focus:ring-2 focus:ring-mywhite/20 transition-all duration-300'
             />
           </label>
 
           <button
             type='submit'
-            className='bg-bigyellow py-3 px-8 rounded-xl outline-none w-fit text-primary font-bold shadow-md shadow-secondary hover:bg-primary hover:text-highlight transition-all duration-300'
+            className='bg-mywhite py-3 px-8 w-fit text-tertiary font-bold shadow-md shadow-bigyellow/50 hover:bg-primary hover:text-secondary transition-all duration-300 rounded-xl'
           >
             {loading ? "Sending..." : "Send"}
           </button>

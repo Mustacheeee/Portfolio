@@ -138,44 +138,37 @@ const projects = [
   {
     name: "Rock Pet",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "Rock Pets is a playful web project designed as a creative exploration of web development and design.",
     tags: [
       {
-        name: "react",
+        name: "#HTML",
         color: "blue-text-gradient",
+        background: "black",
       },
       {
-        name: "restapi",
+        name: "#CSS",
         color: "green-text-gradient",
       },
       {
-        name: "scss",
+        name: "#JavaScript",
         color: "pink-text-gradient",
       },
     ],
     image: jobit,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/Mustacheeee/Rock-pet",
   },
   {
-    name: "Trip Guide",
+    name: "BeReal",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      "Instaparse is a social media-inspired app that allows users to sign up, log in, and share photos while ensuring a unique engagement experience. Built as a quick development exercise, it features camera functionality, persistent user sessions, and interactive elements like comments and notifications.",
     tags: [
       {
-        name: "nextjs",
+        name: "#Swift",
         color: "blue-text-gradient",
-      },
-      {
-        name: "supabase",
-        color: "green-text-gradient",
-      },
-      {
-        name: "css",
-        color: "pink-text-gradient",
       },
     ],
     image: tripguide,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/Mustacheeee/BeReal",
   },
 ];
 

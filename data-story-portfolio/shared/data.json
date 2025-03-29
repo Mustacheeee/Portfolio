@@ -1,29 +1,36 @@
 {
-  "name": "Fiona",
-  "location": "Your City, Country",
-  "email": "your.email@example.com",
+  "name": "Yixin Zhao, AKA Fiona",
+  "location": "West Palm Beach, Florida",
+  "email": "yixin.fiona.zhao@gmail.com",
   "education": [
     {
       "degree": "Bachelor of Science in Computer Science",
-      "university": "Your University",
-      "graduationYear": 2023
+      "university": "university of Central Florida",
+      "location": "Orlando, Florida",
+      "graduationYear": "December, 2024"
     }
   ],
   "skills": {
-    "Programming Languages": ["Python", "JavaScript"],
+    "Programming Languages": ["Python", "JavaScript"," TypeScript","C/C++", "Java", "Swift", "CSS"],
+    "Web Development": ["HTML", "CSS", "React", "Node.js"],
+    "Data Science": ["Pandas", "NumPy", "Matplotlib"],
+    "Databases": ["MySQL", "MongoDB"],
+    "Cloud Services": ["AWS", "Google Cloud"],
+    "Machine Learning": ["TensorFlow", "PyTorch", "Keras"],
     "Frameworks": ["React", "FastAPI"],
-    "Tools": ["Git", "Docker"]
+    "Tools": ["Git", "Blender", "Figma", "Unity", "VS Code", "Google Colab", "Xcode"],
+    "Soft Skills": ["Teamwork", "Communication", "Problem Solving"]
   },
   "projects": [
     {
-      "title": "AI Career Advisor",
-      "description": "An AI-powered tool to provide career advice based on skill gaps.",
-      "technologies": ["React", "FastAPI", "OpenAI"]
+      "title": "This Portfolio",
+      "description": "This portfolio is a personal project that showcases my skills and projects. It is built using React and TypeScript, demonstrating my proficiency in modern 3D web development.",
+      "technologies": ["React", "TypeScript", "CSS"]
     },
     {
-      "title": "Data Visualization Dashboard",
-      "description": "A dashboard to visualize complex datasets using interactive charts.",
-      "technologies": ["D3.js", "TypeScript", "Node.js"]
+      "title": "Rock Pets Website",
+      "description": "Rock Pets is a playful web project designed as a creative exploration of web development and design. While not actively maintained for future updates, it showcases my skills in crafting engaging user experiences with a whimsical touch.",
+      "technologies": ["HTML", "CSS", "JavaScript"]
     },
     {
       "name": "AI-Powered Resume Analyzer",
@@ -34,15 +41,45 @@
   ],
   "workExperience": [
     {
-      "company": "Your Previous Company",
-      "role": "Software Engineer Intern",
-      "duration": "June 2022 - August 2022",
+      "company": "iD Tech Camp",
+      "role": "Robotics Instructor",
+      "location": "Stanford University, California",
+      "duration": "June 2024 - August 2024",
       "responsibilities": [
-        "Developed REST APIs using Flask",
-        "Implemented data pipelines with Apache Airflow"
+        "Developed engaging lesson plans with real-world computer science applications.",
+        "Fostered collaboration, adapted to diverse learning styles, and ensured a rewarding experience.",
+        "Designed and led hands-on robotics and programming workshops for students aged 10 to 18."
+      ]
+    },
+    {
+      "company": "Ocean Breeze Foot Spa",
+      "role": "Service Cashier",
+      "location": "Boca Raton, Florida",
+      "duration": "May 2018 - August 2018",
+      "responsibilities": [
+        "Facilitated communication between English-speaking clients and Chinese-speaking staff.",
+        "Assisted with client bookings, payments, and service recommendations.",
+        "Provided real-time translation during treatments to ensure customer satisfaction.",
+        "Enhanced the overall spa experience through clear and effective communication."
       ]
     }
   ],
+  "interest": ["Drawing", "3D Modeling", "Game Development", "AI Research"],
+  "relocation" : "Open to relocation for job opportunities.",
+  "availability": "Available for internships and full-time positions starting January 2025.",
+  "languages": [
+    {
+      "language": "English",
+      "proficiency": "Fluent"
+    },
+    {
+      "language": "Mandarin",
+      "proficiency": "Native"
+    }
+  ],
   "careerGoals": "I aim to become a full-stack developer specializing in AI-driven applications.",
-  "interests": ["Machine Learning", "Open Source", "Data Science"]
+  "Specialize": ["Machine Learning", "Web App Development"],
+  "hobbies": ["Drawing", "3D Modeling", "Game Development", "AI Research"],
+  "food": ["Chinese Food", "Ice Cream", "Pizza", "Ramen"]
+  
 }

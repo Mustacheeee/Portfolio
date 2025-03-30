@@ -21,20 +21,15 @@ jobs:
         with:
           node-version: "18"
 
-      - name: Remove fsevents from package-lock.json
-        run: |
-          cd data-story-portfolio/frontend
-          sed -i '/fsevents/d' package-lock.json
-
       - name: Install dependencies
         run: |
           cd data-story-portfolio/frontend
-          npm ci --legacy-peer-deps --no-optional
+          npm install --legacy-peer-deps --no-optional
 
       - name: Build
         run: |
           cd data-story-portfolio/frontend
-          npm start
+          npm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

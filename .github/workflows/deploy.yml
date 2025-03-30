@@ -21,11 +21,19 @@ jobs:
         with:
           node-version: "18"
 
+      - name: Modify package.json to remove fsevents
+        run: |
+          cd data-story-portfolio/frontend
+          if [ -f "package.json" ]; then
+            # Remove fsevents from dependencies and devDependencies
+            jq 'del(.dependencies.fsevents) | del(.devDependencies.fsevents)' package.json > package.json.tmp
+            mv package.json.tmp package.json
+          fi
+
       - name: Install dependencies
         run: |
           cd data-story-portfolio/frontend
-          npm install --legacy-peer-deps --no-optional --no-package-lock --ignore-scripts
-          npm install --legacy-peer-deps --no-optional --ignore-platform
+          npm install --legacy-peer-deps --no-optional --force
 
       - name: Build
         run: |

@@ -85,8 +85,8 @@ const ProjectCards = ({
         />
         <p className="font-body block text-mywhite text-[20px] font-light relative 
           h-[0em] 
-          group-hover:h-[15em] 
-          md:group-hover:h-[15em] 
+          group-hover:h-[13em] 
+          md:group-hover:h-[13em] 
           md:h-[0em] 
           sm:h-[13em] 
           xs:h-[13em] 

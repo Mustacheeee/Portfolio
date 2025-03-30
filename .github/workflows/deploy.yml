@@ -19,7 +19,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: "18"
 
       - name: Remove fsevents from package-lock.json
         run: |
@@ -34,7 +34,7 @@ jobs:
       - name: Build
         run: |
           cd data-story-portfolio/frontend
-          npm run build
+          npm start
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

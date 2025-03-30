@@ -7,7 +7,6 @@ import typescript from "../assets/tech/typescript.png";
 import html from "../assets/tech/html.png";
 import css from "../assets/tech/css.png";
 import reactjs from "../assets/tech/reactjs.png";
-import redux from "../assets/tech/redux.png";
 import tailwind from "../assets/tech/tailwind.png";
 import nodejs from "../assets/tech/nodejs.png";
 import mongodb from "../assets/tech/mongodb.png";
@@ -20,7 +19,8 @@ import swift from "../assets/tech/swift.png";
 import sql from "../assets/tech/sql.png";
 import aws from "../assets/tech/aws.png";
 import unity from "../assets/tech/unity.png";
-import jobit from "../assets/jobit.png";
+import rockpet from "../assets/rockpet.png";
+import bereal from "../assets/bereal.png";
 import tripguide from "../assets/tripguide.png";
 import threejs from "../assets/tech/threejs.svg";
 
@@ -154,20 +154,20 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: jobit,
+    image: rockpet,
     source_code_link: "https://github.com/Mustacheeee/Rock-pet",
   },
   {
     name: "BeReal",
     description:
-      "Instaparse is a social media-inspired app that allows users to sign up, log in, and share photos while ensuring a unique engagement experience. Built as a quick development exercise, it features camera functionality, persistent user sessions, and interactive elements like comments and notifications.",
+      "Instaparse is a social media-inspired app that allows users to sign up, log in, and share photos while ensuring a unique engagement experience.",
     tags: [
       {
         name: "#Swift",
         color: "blue-text-gradient",
       },
     ],
-    image: tripguide,
+    image: bereal,
     source_code_link: "https://github.com/Mustacheeee/BeReal",
   },
 ];

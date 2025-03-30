@@ -24,7 +24,8 @@ jobs:
       - name: Install dependencies
         run: |
           cd data-story-portfolio/frontend
-          npm install --legacy-peer-deps --no-optional
+          npm install --legacy-peer-deps --no-optional --no-package-lock --ignore-scripts
+          npm install --legacy-peer-deps --no-optional --ignore-platform
 
       - name: Build
         run: |

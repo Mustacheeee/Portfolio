@@ -3,9 +3,6 @@ import { motion } from "framer-motion";
 import { styles } from "../../styles.js";
 import { ComputersCanvas } from "./canvas";
 import { SectionWrapper } from "src/hoc/index.js";
-import landimg from "../assets/herobg.png";
-
-
 
 const Landing = () => {
 

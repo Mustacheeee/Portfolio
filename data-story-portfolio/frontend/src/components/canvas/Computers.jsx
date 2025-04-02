@@ -1,12 +1,11 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
-
 import CanvasLoader from "../Loader";
 
 const Computers = ({ isMobile }) => {
   // Path relative to the public directory
-  const { scene } = useGLTF("/desktop_pc/scene.gltf");
+  const { scene } = useGLTF("./desktop_pc/scene.gltf");
 
   useEffect(() => {
     if (scene) {
@@ -71,6 +70,9 @@ const Computers = ({ isMobile }) => {
     </>
   );
 };
+
+const MemoizedComputerModel = React.memo(Computers);
+
 const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
 

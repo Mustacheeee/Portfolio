@@ -5,31 +5,72 @@ import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 import CanvasLoader from "../Loader";
 
 const Computers = ({ isMobile }) => {
-  const computer = useGLTF("../desktop_pc/scene.gltf");
+  // Path relative to the public directory
+  const { scene } = useGLTF("/desktop_pc/scene.gltf");
+
+  useEffect(() => {
+    if (scene) {
+      // Make sure materials in the model can receive light
+      scene.traverse((child) => {
+        if (child.isMesh) {
+          child.castShadow = true;
+          child.receiveShadow = true;
+          // Ensure materials are set to receive lighting
+          if (child.material) {
+            child.material.needsUpdate = true;
+          }
+        }
+      });
+    }
+  }, [scene]);
 
   return (
-    <mesh>
-      <ambientLight intensity={0.8} />
+    <>
+      {/* Main ambient light - fills the entire scene */}
+      <ambientLight intensity={0.25} />
       
+      {/* Directional light - like sunlight */}
       <directionalLight 
-        position={[10, 10, 5]} 
-        intensity={2} 
-        color="#ffffff" 
+        position={[5, 10, 5]} 
+        intensity={1} 
+        castShadow 
+        shadow-mapSize-width={1024} 
+        shadow-mapSize-height={1024}
       />
       
-      <pointLight position={[-10, 0, -20]} intensity={0.5} />
-      <pointLight position={[0, -10, 0]} intensity={0.5} />
+      {/* Hemisphere light - provides natural gradient lighting */}
+      <hemisphereLight 
+        intensity={0.5} 
+        groundColor="#404040" 
+        skyColor="#ffffff" 
+      />
       
+      {/* Spot light to highlight the computer */}
+      <spotLight
+        position={[-5, 10, 2]}
+        angle={0.15}
+        penumbra={1}
+        intensity={1.5}
+        castShadow
+        shadow-mapSize={1024}
+      />
+      
+      {/* Point lights to add detail */}
+      <pointLight position={[0, -3, 0]} intensity={0.5} distance={7} />
+      <pointLight position={[-5, 0, 0]} intensity={0.3} distance={7} />
+      
+      {/* The 3D model */}
       <primitive
-        object={computer.scene}
+        object={scene}
         scale={isMobile ? 0.7 : 0.75}
-        position={isMobile ? [0, -3, -2.2] : [0, -1, -1.5]}
+        position={isMobile ? [0, -1.2, -2.2] : [0, -1.5, -1.5]}
         rotation={[-0.01, -0.2, -0.1]}
+        castShadow
+        receiveShadow
       />
-    </mesh>
+    </>
   );
 };
-
 const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
 

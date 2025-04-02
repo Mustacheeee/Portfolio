@@ -1,11 +1,14 @@
 {
-  "homepage": "https://mustacheeee.github.io/Portfolio",
+  "homepage": "https://mustacheeee.github.io/Portfolio/",
   "name": "data-story-portfolio",
   "version": "1.0.0",
   "scripts": {
     "start": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
+    "serve": "vite preview",
+    "lint": "eslint src --ext js,jsx,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

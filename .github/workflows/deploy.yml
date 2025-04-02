@@ -21,14 +21,15 @@ jobs:
         with:
           node-version: "18"
 
-      - name: Modify package.json to remove fsevents
+      - name: Modify package-lock.json
         run: |
           cd data-story-portfolio/frontend
-          if [ -f "package.json" ]; then
-            # Remove fsevents from dependencies and devDependencies
-            jq 'del(.dependencies.fsevents) | del(.devDependencies.fsevents)' package.json > package.json.tmp
-            mv package.json.tmp package.json
+          if [ -f "package-lock.json" ]; then
+            # Remove fsevents entries from package-lock.json
+            jq 'del(.. | .fsevents? | select(.))' package-lock.json > package-lock.json.tmp
+            mv package-lock.json.tmp package-lock.json
           fi
+          
 
       - name: Install dependencies
         run: |

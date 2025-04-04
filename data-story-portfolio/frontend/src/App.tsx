@@ -27,7 +27,7 @@ function App() {
           <StarsCanvas />
         </div>
         <ProjectCard />
-        <AIChat />
+        {/* <AIChat /> */}
         <div className='bg-connect-pattern bg-cover bg-no-repeat bg-center'>
           <Contact />
         </div>

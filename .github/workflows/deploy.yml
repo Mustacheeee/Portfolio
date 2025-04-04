@@ -2,7 +2,8 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -13,29 +14,28 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v3
 
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "18"
+          node-version: 18
 
       - name: Modify package.json to remove fsevents
         run: |
           cd data-story-portfolio/frontend
           if [ -f "package.json" ]; then
-            # Remove fsevents from dependencies and devDependencies
             jq 'del(.dependencies.fsevents) | del(.devDependencies.fsevents)' package.json > package.json.tmp
             mv package.json.tmp package.json
           fi
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: |
           cd data-story-portfolio/frontend
           npm install --legacy-peer-deps --no-optional --force
 
-      - name: Build
+      - name: Build Project
         run: |
           cd data-story-portfolio/frontend
           npm run build

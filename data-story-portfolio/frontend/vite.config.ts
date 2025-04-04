@@ -7,7 +7,7 @@ export default defineConfig(async () => {
   const tsconfigPaths = (await import('vite-tsconfig-paths')).default;
   
   return {
-    base: '/',
+    base: '/Portfolio',
     plugins: [react({
       jsxRuntime: 'automatic'
     }), tsconfigPaths()],

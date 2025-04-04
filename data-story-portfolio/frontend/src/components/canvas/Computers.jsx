@@ -6,7 +6,7 @@ import CanvasLoader from "../Loader";
 
 const Computers = ({ isMobile }) => {
   // Path relative to the public directory
-  const { scene } = useGLTF("desktop_pc/scene.gltf");
+  const { scene } = useGLTF("/desktop_pc/scene.gltf");
 
   useEffect(() => {
     if (scene) {

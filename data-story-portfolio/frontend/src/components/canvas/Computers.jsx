@@ -1,31 +1,45 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
-
+import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 import CanvasLoader from "../Loader";
 
 const Computers = ({ isMobile }) => {
   // Path relative to the public directory
-  const { scene } = useGLTF("/desktop_pc/scene.gltf");
+  const { scene } = useGLTF(
+    "./desktop_pc/scene.gltf",
+    undefined,
+    (loader) => {
+      const dracoLoader = new DRACOLoader();
+      loader.setDRACOLoader(dracoLoader);
+    }
+  );
 
   useEffect(() => {
     if (scene) {
-      // Make sure materials in the model can receive light
+      console.log("Root scene object:", scene);
       scene.traverse((child) => {
         if (child.isMesh) {
-          child.castShadow = true;
-          child.receiveShadow = true;
-          // Ensure materials are set to receive lighting
-          if (child.material) {
-            child.material.needsUpdate = true;
+          // console.log(`Mesh: ${child.name}`, child.geometry);
+          const posAttr = child.geometry.attributes.position;
+      
+          if (!posAttr) {
+            console.warn(`Mesh ${child.name} has no position attribute`, child);
+          } else {
+            const array = posAttr.array;
+            if (array.some((v) => !Number.isFinite(v))) {
+              console.error(`Mesh ${child.name} has invalid position data`, array);
+            }
           }
         }
       });
+      
     }
   }, [scene]);
+  
 
   return (
-    <>
+    <mesh>
       {/* Main ambient light - fills the entire scene */}
       <ambientLight intensity={0.25} />
       
@@ -68,18 +82,17 @@ const Computers = ({ isMobile }) => {
         castShadow
         receiveShadow
       />
-    </>
+    </mesh>
   );
 };
+
+const MemoizedComputerModel = React.memo(Computers);
+
 const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Add a listener for changes to the screen size
     const mediaQuery = window.matchMedia("(max-width: 500px)");
-
-    // Set the initial value of the `isMobile` state variable
-    setIsMobile(mediaQuery.matches);
 
     // Define a callback function to handle changes to the media query
     const handleMediaQueryChange = (event) => {
@@ -109,7 +122,7 @@ const ComputersCanvas = () => {
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
-        <Computers isMobile={isMobile} />
+        <MemoizedComputerModel isMobile={isMobile} />
       </Suspense>
 
       <Preload all />

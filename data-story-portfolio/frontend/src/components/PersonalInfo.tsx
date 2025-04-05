@@ -102,7 +102,7 @@ const PersonalInfo = () => {
       >
         <div className="personal-info bg-bigyellow mr-10 sm:w-1/3 xs:w-1/2">
           <img 
-            src="../public/mypic.jpg"
+            src="/Portfolio/mypic.jpg"
             alt="Your Name"
             className="profile-pic"
           />

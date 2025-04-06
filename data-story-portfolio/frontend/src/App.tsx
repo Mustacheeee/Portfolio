@@ -18,7 +18,7 @@ function App() {
     <BrowserRouter>
       <div className="relative z-0 bg-primary">
         {/* <div className='bg-welcome-pattern bg-cover bg-no-repeat bg-center'> */}
-        <div className='bg-welcome-pattern lg:bg-cover bg-no-repeat bg-center xs:bg-[height:200px_auto] sm:bg-[length:1200px_auto] xs:bg-[length:800px_auto] '>
+        <div className='bg-welcome-pattern lg:bg-cover bg-no-repeat bg-center xl:bg-[length:2150px_auto] xs:bg-[height:200px_auto] sm:bg-[length:1200px_auto] xs:bg-[length:800px_auto] '>
 
           <Navbar />
           <Landing />

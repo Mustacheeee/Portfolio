@@ -33,7 +33,7 @@ const ProjectCards = ({
       variants={fadeIn("up", "spring", index * 0.5, 0.75)}
       className="group"
     >
-      <div className="card shadow-[0px_4px_16px_px_#367E08] border-2 border-white rounded-[0.5em] h-[400px] w-[280px] rounded-[1.5em] relative flex justify-end flex-col z-[1] overflow-hidden">
+      <div className="card shadow-[0px_4px_16px_px_#367E08] border-2 border-white rounded-[0.5em] sm:h-[400px] sm:w-[280px] rounded-[1.5em] relative flex justify-end flex-col z-[1] overflow-hidden h-[400px] w-[250px]">
         
         <div 
           onClick={() => window.open(source_code_link, "_blank")}
@@ -113,7 +113,7 @@ const ProjectCard = () => {
       <div className='w-full flex'>
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
-          className='mt-3 text-secondary text-[17px] max-w-3xl leading-[30px] sm:mx-3 xs:mx-3'
+          className='mt-3 text-secondary text-[17px] max-w-3xl leading-[30px] font-body tracking-wide xl:mx-0 sm:mx-3 xs:mx-3'
         >
           Following projects showcases my skills and experience through
           real-world examples of my work. Each project is briefly described with

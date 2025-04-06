@@ -26,7 +26,7 @@ module.exports = {
         xs: "450px",
       },
       backgroundImage: {
-        'land-pattern': "url('/src/assets/welcome.png')",
+        'welcome-pattern': "url('/src/assets/welcome.png')",
         'connect-pattern': "url('/src/assets/connect.png')",
       },
     },

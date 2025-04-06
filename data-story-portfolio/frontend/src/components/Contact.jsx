@@ -75,7 +75,7 @@ const Contact = () => {
         className='flex-[0.75] bg-tertiary p-8 rounded-2xl -mt-6 border-2 border-mywhite/10 shadow-xl shadow-black/20 backdrop-blur-sm'
       >
         <div className="mb-8 ">
-          <h3 className="text-bigyellow font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">Let's connect!</h3>
+          <h3 className="text-bigyellow font-black md:text-[60px] sm:text-[50px] xs:text-[30px] text-[30px]">Let's connect!</h3>
         </div>
 
         <form
@@ -91,7 +91,7 @@ const Contact = () => {
               value={form.name}
               onChange={handleChange}
               placeholder="What's your good name?"
-              className='bg-mywhite py-4 px-6 placeholder:text-tertiary placeholder:font-title text-primary font-body rounded-lg outline-none border-none font-medium focus:ring-2 focus:ring-mywhite/20 transition-all duration-300'
+              className='bg-mywhite xs:text-[10px] py-4 px-6 placeholder:text-tertiary placeholder:font-title text-primary font-body rounded-lg outline-none border-none font-medium focus:ring-2 focus:ring-mywhite/20 transition-all duration-300'
             />
           </label>
           <label className='flex flex-col'>
@@ -102,7 +102,7 @@ const Contact = () => {
               value={form.email}
               onChange={handleChange}
               placeholder="What's your Email address?"
-              className='bg-mywhite py-4 px-6 placeholder:text-tertiary placeholder:font-title text-primary font-body rounded-lg outline-none border-none font-medium focus:ring-2 focus:ring-mywhite/20 transition-all duration-300'
+              className='bg-mywhite py-4 px-6 xs:text-[10px] placeholder:text-tertiary placeholder:font-title text-primary font-body rounded-lg outline-none border-none font-medium focus:ring-2 focus:ring-mywhite/20 transition-all duration-300'
             />
           </label>
           <label className='flex flex-col'>
@@ -113,7 +113,7 @@ const Contact = () => {
               value={form.message}
               onChange={handleChange}
               placeholder='What you want to say?'
-              className='bg-mywhite py-4 px-6 placeholder:text-tertiary tracking-wide placeholder:font-title text-primary font-body rounded-lg outline-none border-none font-medium focus:ring-2 focus:ring-mywhite/20 transition-all duration-300'
+              className='bg-mywhite py-4 px-6 xs:text-[10px] placeholder:text-tertiary tracking-wide placeholder:font-title text-primary font-body rounded-lg outline-none border-none font-medium focus:ring-2 focus:ring-mywhite/20 transition-all duration-300'
             />
           </label>
 

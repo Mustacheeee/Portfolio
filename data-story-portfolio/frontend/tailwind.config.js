@@ -23,7 +23,11 @@ module.exports = {
         card: "0px 35px 120px -15px #211e35",
       },
       screens: {
-        xs: "450px",
+        xs: "375px",
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
       },
       backgroundImage: {
         'welcome-pattern': "url('/src/assets/welcome.png')",

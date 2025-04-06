@@ -27,26 +27,26 @@ const AIChat = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <h2 className="text-mywhite mt-16 text-center md:text-[60px] xl:ml-0 sm:text-[50px] sm:ml-3 xs:text-[40px] text-[30px] xs:ml-3">Ask Me Anything About  
-          <h2 className='text-highlight'>Fiona</h2></h2>
+        <h2 className="text-mywhite mt-16 text-center md:text-[60px] xl:ml-0 sm:text-[50px] sm:ml-3 xs:text-[20px] xs:tracking-tight text-[30px] xs:ml-3">Ask Me Anything About &nbsp;  
+          <span className='text-highlight'>Fiona</span></h2>
       </motion.div>
   
       <motion.div
         variants={fadeIn("", "", 0.1, 1)}
-        className='mt-20 mb-48 min-h-80 text-secondary text-[17px] leading-[30px] sm:mx-3 xs:mx-3'
+        className="mt-20 mb-48 min-h-80 text-secondary text-[17px] leading-[30px] px-4"
       >
         <div className="bg-tertiary p-8 rounded-2xl shadow-bigyellow shadow-md w-full max-w-4xl mx-auto">
-          <div className="flex sm:flex-row xs:flex-col mb-6">
+          <div className="flex flex-col sm:flex-row gap-4 sm:items-stretch items-center">
             <input
               type="text"
               value={question}
               onChange={(e) => setQuestion(e.target.value)}
               placeholder="Ask any question about me..."
-              className="bg-mywhite py-4 px-6 placeholder:text-tertiary placeholder:font-title text-primary font-body rounded-lg outline-none border-none font-medium flex-1 sm:mr-3 xs:mb-3 sm:mb-0"
+              className="bg-mywhite py-4 px-6 placeholder:text-tertiary placeholder:font-title text-primary font-body rounded-lg outline-none border-none font-medium w-full sm:flex-1"
             />
             <button 
               onClick={handleAsk}
-              className="bg-mywhite py-3 px-8 w-fit text-tertiary font-bold shadow-md shadow-bigyellow/50 hover:bg-primary hover:text-secondary transition-all duration-300 rounded-xl"
+              className="bg-mywhite py-3 px-8 text-tertiary font-bold shadow-md shadow-bigyellow/50 hover:bg-primary hover:text-secondary transition-all duration-300 rounded-xl w-full sm:w-auto sm:self-auto self-center"
             >
               Ask
             </button>

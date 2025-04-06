@@ -22,7 +22,7 @@ import unity from "../assets/tech/unity.png";
 import rockpet from "../assets/rockpet.png";
 import bereal from "../assets/bereal.png";
 import tripguide from "../assets/tripguide.png";
-import threejs from "../assets/tech/threejs.svg";
+import threjs from "../assets/tech/threjs.png";
 
 const navLinks = [
   {
@@ -93,7 +93,7 @@ const technologies = [
   // },
   {
     name: "Three JS",
-    icon: threejs,
+    icon: threjs,
   },
   {
     name: "git",
@@ -103,7 +103,6 @@ const technologies = [
     name: "figma",
     icon: figma,
   },
-  // here
   {
     name: "Java",
     icon: java,

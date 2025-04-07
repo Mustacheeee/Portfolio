@@ -7,11 +7,17 @@ from pathlib import Path
 import os
 import time
 import re
+from openai import OpenAI
 from typing import Dict, Any
+from dotenv import load_dotenv
+from openai import OpenAIError
+
+load_dotenv()  # This will load the .env file from the root by default
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # --- Enhanced Data Loading ---
 def load_personal_profile() -> Dict[str, Any]:
-    data_path = Path(__file__).parent.parent / "../shared/data.json"
+    data_path = Path(__file__).parent.parent / "shared" / "data.json"
     try:
         with open(data_path, "r", encoding="utf-8") as f:
             data = json.load(f)
@@ -88,28 +94,33 @@ def is_greeting(text: str) -> bool:
     return False
 
 # --- API Call with Retry Mechanism ---
-def query_hf_api(payload: Dict, retries: int = 3) -> Dict:
-    API_URL = "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.2"
-    headers = {"Authorization": f"Bearer {HF_API_KEY}"}
-    
-    for attempt in range(retries):
-        try:
-            response = requests.post(API_URL, headers=headers, json=payload, timeout=30)
-            response.raise_for_status()
-            return response.json()
-        except requests.exceptions.HTTPError as e:
-            if "Model is loading" in response.text:
-                wait_time = int(response.headers.get("estimated_time", 30))
-                print(f"Model loading, retrying in {wait_time}s...")
-                time.sleep(wait_time)
-                continue
-            raise
-        except (requests.exceptions.Timeout, requests.exceptions.ConnectionError):
-            if attempt < retries - 1:
-                time.sleep(2 ** attempt)
-                continue
-            raise
-    return {}
+def query_openai(question: str, personal_info: str) -> str:
+    try:
+        response = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {
+                    "role": "system",
+                    "content": (
+                        "You are a professional AI assistant helping recruiters understand Fiona's professional profile. "
+                        "Respond clearly and concisely with relevant, professional information based on the given profile. "
+                        "Keep responses under 100 words."
+                    )
+                },
+                {
+                    "role": "user",
+                    "content": f"My profile: {personal_info}\n\nQuestion: {question}"
+                }
+            ],
+            temperature=0.2,
+            max_tokens=200,
+            top_p=0.9,
+        )
+        return response.choices[0].message.content.strip()
+    except OpenAIError as e:
+        print(f"OpenAI error: {e}")
+        return "Sorry, I couldn't process your question at the moment."
+
 
 @app.post("/ask")
 async def ask_question(question: Question):
@@ -118,32 +129,17 @@ async def ask_question(question: Question):
         if is_greeting(question.text):
             return {"answer": GREETING_RESPONSE}
         
-        formatted_prompt = PROMPT_TEMPLATE.format(
-            personal_info=json.dumps(personal_data, ensure_ascii=False),
-            question=question.text
-        )
+        personal_info = json.dumps(personal_data, ensure_ascii=False)
+        raw_answer = query_openai(question.text, personal_info)
         
-        payload = {
-            "inputs": formatted_prompt,
-            "parameters": {
-                "max_new_tokens": 200,  # Reduce max tokens
-                "temperature": 0.2,     # Make response more focused
-                "top_p": 0.9            # Maintain coherence
-            }
-        }
-        
-        result = query_hf_api(payload)
-        
-        # Remove any formatting markers, limit length
-        raw_answer = result[0]['generated_text'].split("[/INST]")[-1].strip()
-        raw_answer = raw_answer.replace("【Key Points】", "").replace("【Detailed Explanation】", "").strip()
-        raw_answer = raw_answer.replace("【Project Examples】", "").strip()
-        
+        print("Personal Data:", personal_data)
+        print(f"Personal Info: {personal_info}")
+
         return {"answer": raw_answer}
         
-    except Exception as e:
-        print(f"Error processing question: {e}")  # Server-side logging
-        return {"answer": "I apologize, but I couldn't process your question at the moment."}
+    except OpenAIError as e:
+      print(f"OpenAI error: {e}")
+      return f"Sorry, there was an error: {e}"
 
 if __name__ == "__main__":
     import uvicorn

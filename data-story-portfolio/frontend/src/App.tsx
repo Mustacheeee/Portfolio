@@ -3,7 +3,6 @@ import PersonalInfo from './components/PersonalInfo';
 import ProjectCard from './components/ProjectCard';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import Landing from './components/Landing.js';
-// import { Project } from '@shared/types';
 import './App.css';
 import Navbar from './components/Navbar';
 import AIChat from './components/AIChat';

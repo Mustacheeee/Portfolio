@@ -30,7 +30,7 @@ module.exports = {
         xl: "1280px",
       },
       backgroundImage: {
-        'welcome-pattern': "url('/src/assets/welcome.png')",
+        'welcome-pattern': "url('/src/assets/Welcome.png')",
         'connect-pattern': "url('/src/assets/connect.png')",
       },
     },

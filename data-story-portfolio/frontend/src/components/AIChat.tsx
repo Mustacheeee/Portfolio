@@ -41,7 +41,7 @@ const AIChat = () => {
               type="text"
               value={question}
               onChange={(e) => setQuestion(e.target.value)}
-              placeholder="Ask any question about me(skills, hobbies, etc.)"
+              placeholder="Any question about me(skills, hobbies, etc.)!"
               className="bg-mywhite py-4 text-[12px] xs:tracking-tight sm:text-[12px] md:text-[15px] px-6 placeholder:text-tertiary sm:placeholder:font-title placeholder:font-body text-primary font-body rounded-lg outline-none border-none font-medium w-full sm:flex-1"
             />
             <button 

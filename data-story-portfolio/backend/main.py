@@ -7,13 +7,12 @@ from pathlib import Path
 import os
 import time
 import re
-from openai import OpenAI
+import openai
 from typing import Dict, Any
 from dotenv import load_dotenv
-from openai import OpenAIError
 
 load_dotenv()  # This will load the .env file from the root by default
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # --- Enhanced Data Loading ---
 def load_personal_profile() -> Dict[str, Any]:
@@ -96,7 +95,7 @@ def is_greeting(text: str) -> bool:
 # --- API Call with Retry Mechanism ---
 def query_openai(question: str, personal_info: str) -> str:
     try:
-        response = client.chat.completions.create(
+        response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[
                 {
@@ -116,9 +115,9 @@ def query_openai(question: str, personal_info: str) -> str:
             max_tokens=200,
             top_p=0.9,
         )
-        return response.choices[0].message.content.strip()
-    except OpenAIError as e:
-        print(f"OpenAI error: {e}")
+        return response['choices'][0]['message']['content'].strip()
+    except Exception as e:
+        print(f"OpenAI API error: {e}")
         return "Sorry, I couldn't process your question at the moment."
 
 
@@ -132,14 +131,11 @@ async def ask_question(question: Question):
         personal_info = json.dumps(personal_data, ensure_ascii=False)
         raw_answer = query_openai(question.text, personal_info)
         
-        print("Personal Data:", personal_data)
-        print(f"Personal Info: {personal_info}")
-
         return {"answer": raw_answer}
         
-    except OpenAIError as e:
-      print(f"OpenAI error: {e}")
-      return f"Sorry, there was an error: {e}"
+    except Exception as e:
+        print(f"Error processing question: {e}")  # Server-side logging
+        return {"answer": "I apologize, but I couldn't process your question at the moment."}
 
 if __name__ == "__main__":
     import uvicorn

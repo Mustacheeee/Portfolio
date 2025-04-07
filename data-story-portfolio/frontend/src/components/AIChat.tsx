@@ -42,7 +42,7 @@ const AIChat = () => {
               value={question}
               onChange={(e) => setQuestion(e.target.value)}
               placeholder="Ask any question about me(skills, hobbies, etc.)"
-              className="bg-mywhite py-4 text-[5px] xs:tracking-tight sm:text-[10px] md:text-[15px] px-6 placeholder:text-tertiary placeholder:font-title text-primary font-body rounded-lg outline-none border-none font-medium w-full sm:flex-1"
+              className="bg-mywhite py-4 text-[12px] xs:tracking-tight sm:text-[12px] md:text-[15px] px-6 placeholder:text-tertiary sm:placeholder:font-title placeholder:font-body text-primary font-body rounded-lg outline-none border-none font-medium w-full sm:flex-1"
             />
             <button 
               onClick={handleAsk}
@@ -59,7 +59,7 @@ const AIChat = () => {
               transition={{ type: "spring", delay: 0.5 }}
               className="p-5 bg-bigyellow rounded-xl mt-4"
             >
-              <p className="text-primary text-xl font-body tracking-wide">{answer}</p>
+              <p className="text-primary text-md font-body tracking-wide">{answer}</p>
             </motion.div>
           )}
         </div>

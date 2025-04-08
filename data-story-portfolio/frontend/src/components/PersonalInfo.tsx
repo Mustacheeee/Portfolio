@@ -5,7 +5,7 @@ import { fadeIn, textVariant, } from "../constants/motion.js";
 import styled from 'styled-components';
 import linkedin from "../assets/linkedin-brands.svg";
 import github from "../assets/github-brands.svg";
-
+import download from "../assets/download-solid.svg";
 
 interface ButtonProps {
   label?: string;
@@ -102,7 +102,7 @@ const PersonalInfo = () => {
       >
         <div className="personal-info bg-bigyellow mr-10 sm:w-1/3 xs:w-1/2">
           <img 
-            src="/Portfolio/mypic.jpg"
+            src="/Portfolio/mypic.png"
             alt="Your Name"
             className="profile-pic"
           />
@@ -130,6 +130,12 @@ const PersonalInfo = () => {
             label="GitHub"
             href="https://github.com/Mustacheeee"
             svg={github}
+            target="_blank"
+            />
+            <Button
+            label="Resume"
+            href="/Portfolio/resume.pdf"
+            svg={download}
             target="_blank"
             />
           </div>

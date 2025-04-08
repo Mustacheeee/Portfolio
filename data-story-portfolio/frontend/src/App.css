@@ -233,16 +233,16 @@
 .personal-info {
   text-align: center;
   align-items: center;
-  padding: 2rem;
+  padding: 1rem;
   min-width: 15rem;
-
+  max-width: 15rem;
   border-radius: 10px;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 .profile-pic {
   width: 308rem;
   height: 150px;
-  border-radius: 50%;
+  border-radius: 15%;
   object-fit: cover;
   margin-bottom: 1rem;
 }

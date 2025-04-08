@@ -8,8 +8,9 @@ const AIChat = () => {
   const [answer, setAnswer] = useState('');
 
   const handleAsk = async () => {
+    
     try {
-      const response = await fetch('https://portfolio-backend-gdna.onrender.com', {
+      const response = await fetch('https://portfolio-backend-gdna.onrender.com/ask', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: question }),

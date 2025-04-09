@@ -5,11 +5,11 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'title': ['"Rubik Mono One"', 'monospace'], // For bold, distinctive titles
-        'body': ['"Rubik"', 'sans-serif']
+        'title': ['"Rubik Mono One"'], // For bold, distinctive titles
+        'body': ['"Rubik"']
       },
       fontWeight: {
-        body: '500',
+        body: '300',
       },
       colors: {
         primary: "#000000", // bg

@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-import github from "../assets/github.png";
+import github from "../assets/github-brands.svg";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../constants/motion.js";
@@ -33,40 +33,18 @@ const ProjectCards = ({
       variants={fadeIn("up", "spring", index * 0.5, 0.75)}
       className="group"
     >
-      <div className="card shadow-[0px_4px_16px_px_#367E08] border-2 border-white rounded-[0.5em] sm:h-[400px] sm:w-[280px] rounded-[1.5em] relative flex justify-end flex-col z-[1] overflow-hidden h-[400px] w-[250px]">
-        
-        <div 
-          onClick={() => window.open(source_code_link, "_blank")}
-          className="absolute top-4 right-4 z-[3] cursor-pointer hover:scale-110 transition-transform"
-        >
-          <img
-            src={github}
-            alt='source code'
-            className='h-[2em] w-[2em] bg-mywhite/30 rounded-full p-1'
-          />
-        </div>
+      <div className="card border-2 border-white rounded-[1.5em] relative z-[1] overflow-hidden h-[500px] w-[300px] sm:w-[350px] md:w-[400px] lg:w-[450px] xl:w-[580px] flex flex-col justify-center items-center bg-mywhite/10 hover:bg-mywhite/20 transition-all duration-300">
 
+        {/* Overlay content (title, tags, etc.) */}
         <div className="absolute top-0 left-0 w-full bg-black z-[2]">
-          <div className="container text-highlight relative font-nunito flex flex-col gap-[0.5em] p-[1.5em]">
-            <div className="h-fit w-full">
-              <h1 
-                className="card_heading text-[1.5em] tracking-[.2em]" 
-                style={{
-                  fontWeight: 900, 
-                  WebkitTextFillColor: 'transparent', 
-                  WebkitTextStrokeWidth: 1, 
-                  textShadow: '0 0 7px #f8df51'
-                }}
-              >
-                {name.toUpperCase()}
-              </h1>
-            </div>
+          <div className="container text-highlight relative flex flex-col gap-[0.5em] p-[1.5em]">
+            <h1 className="card_heading text-[1.5em] tracking-[.2em]">{name.toUpperCase()}</h1>
 
-            <div className="flex flex-wrap justify-left items-center h-fit w-full gap-[0.5em]">
+            <div className="flex flex-wrap justify-left items-center gap-[0.5em]">
               {tags.map((tag) => (
                 <div 
                   key={tag.name}
-                  className={`bg-black border-2 border-white rounded-[0.5em] ${tag.color} font-nunito text-[0.8em] font-normal px-[0.5em] py-[0.05em]`}
+                  className={`border-2 border-mywhite rounded-[0.5em] ${tag.color} font-nunito text-[0.8em] font-normal px-[0.5em] py-[0.05em]`}
                 >
                   <p>{tag.name}</p>
                 </div>
@@ -75,29 +53,29 @@ const ProjectCards = ({
           </div>
         </div>
 
+        {/* Background Image */}
         <div 
-          className="absolute top-[120px] left-0 h-[calc(100%-120px)] w-full" 
+          className="absolute top-[120px] bg-black left-0 h-[calc(100%-120px)] w-full bg-cover bg-center transition-opacity duration-300 group-hover:opacity-40"
           style={{
             backgroundImage: `url(${image})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
           }} 
         />
-        <p className="font-body block text-mywhite text-[20px] font-light relative 
-          h-[0em] 
-          group-hover:h-[13em] 
-          md:group-hover:h-[13em] 
-          md:h-[0em] 
-          sm:h-[13em] 
-          xs:h-[13em] 
-          duration-500 
-          overflow-hidden 
-          z-[2] 
-          bg-black/90 
-          p-2 
-          rounded-lg">
-          {description}
-        </p>
+
+        {/* Hover Overlay with GitHub Icon */}
+        <div className="absolute top-[120px] left-0 h-[calc(100%-120px)] w-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 z-[3]">
+          <div 
+            onClick={() => window.open(source_code_link, "_blank")}
+            className="cursor-pointer hover:scale-110 transition-transform"
+          >
+            <img
+              src={github}
+              alt="source code"
+              className="h-[3em] w-[3em] bg-mywhite/30 rounded-full p-1"
+            />
+          </div>
+        </div>
       </div>
     </motion.div>
   );
@@ -107,7 +85,7 @@ const ProjectCard = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <h2 className="text-white font-black md:text-[60px] mt-20 xl:ml-0 sm:text-[50px] sm:ml-3 xs:text-[40px] text-[30px] xs:ml-3">PROJECTS</h2>
+        <h2 className="text-mywhite font-black md:text-[60px] mt-20 xl:ml-0 sm:text-[50px] sm:ml-3 xs:text-[40px] text-[30px] xs:ml-3">PROJECTS</h2>
       </motion.div>
 
       <div className='w-full flex'>
@@ -123,7 +101,7 @@ const ProjectCard = () => {
         </motion.p>
       </div>
 
-      <div className='mt-20 flex flex-wrap gap-7 justify-center'>
+      <div className='mt-20 w-full px-4 flex flex-wrap gap-7 justify-center'>
         {projects.map((project, index) => (
           <ProjectCards key={`project-${index}`} index={index} {...project} />
         ))}

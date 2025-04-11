@@ -67,7 +67,7 @@ Response format:
 [/INST]"""
 
 # --- Greeting Template (without bullet points) ---
-GREETING_RESPONSE = """Hello! I'm Fiona's AI assistant. You can ask me about my technical skills and programming languages, work experience and projects, education and certifications, areas of expertise, or why I would be a good fit for your team. How can I help you today?"""
+GREETING_RESPONSE = """Hello! I'm Fiona's AI assistant. You can ask me about my technical skills and projects, work experience and relocation, education and certifications, areas of expertise, or why I would be a good fit for your team. How can I help you today?"""
 
 class Question(BaseModel):
     text: str

@@ -6,9 +6,12 @@ import { SectionWrapper } from "src/hoc/index.js";
 const AIChat = () => {
   const [question, setQuestion] = useState('');
   const [answer, setAnswer] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleAsk = async () => {
-    
+    setLoading(true);
+    setAnswer('');
+
     try {
       const response = await fetch('https://portfolio-backend-gdna.onrender.com/ask', {
         method: 'POST',
@@ -22,6 +25,8 @@ const AIChat = () => {
     } catch (error) {
       console.error('Error:', error);
       setAnswer("Error fetching answer");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -53,14 +58,21 @@ const AIChat = () => {
             </button>
           </div>
           
-          {answer && (
+          {(loading || answer) && (
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ type: "spring", delay: 0.5 }}
+              transition={{ type: "spring", delay: 0.3 }}
               className="p-5 bg-bigyellow rounded-xl mt-4"
             >
-              <p className="text-primary text-md font-body tracking-wide">{answer}</p>
+              {loading ? (
+                <p className="text-primary text-md font-body tracking-wide">
+                  <span className="animate-bounce">Thinking</span>
+                  <span className="animate-pulse">...</span>
+                </p>
+              ) : (
+                <p className="text-primary text-md font-body tracking-wide">{answer}</p>
+              )}
             </motion.div>
           )}
         </div>

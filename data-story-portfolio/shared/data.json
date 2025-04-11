@@ -2,6 +2,11 @@
   "name": "Yixin Zhao, people call me Fiona",
   "location": "West Palm Beach, Florida",
   "email": "yixin.fiona.zhao@gmail.com",
+  "gender": "Female (She/Her)",
+  "ethnicity": "Asian(not Hispanic or Latino) (United States)",
+  "race": "Asian",
+  "verteranStatus": "Not a veteran",
+  "disabilityStatus": "No disability",
   "education": [
     {
       "degree": "Bachelor of Science in Computer Science",
@@ -80,6 +85,6 @@
   "careerGoals": "I aim to become a full-stack developer specializing in AI-driven applications.",
   "Specialize": ["Machine Learning", "Web App Development"],
   "hobbies": ["Drawing", "3D Modeling", "Game Development", "AI Research"],
-  "food": ["Chinese Food", "Ice Cream", "Pizza", "Ramen"]
-  
+  "food": ["Chinese Food", "Ice Cream", "Pizza", "Ramen", "Coffee"],
+  "Sponsorship": "I would never need sponsorship"
 }

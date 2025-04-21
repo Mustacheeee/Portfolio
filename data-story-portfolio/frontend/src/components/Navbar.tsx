@@ -36,6 +36,10 @@ const Navbar = () => {
       title: "PROJECT",
     },
     {
+      id: "aiChat",
+      title: "CHATBOT",
+    },
+    {
       id: "contact",
       title: "CONTACT",
     },

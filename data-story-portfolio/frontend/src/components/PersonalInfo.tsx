@@ -98,24 +98,26 @@ const PersonalInfo = () => {
 
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
-        className='mt-4 flex text-secondary xl:flex-nowrap lg:flex-nowrap xs:flex-wrap text-[17px] leading-[30px] sm:mx-3 xs:mx-3'
+        className='mt-4 flex text-secondary xl:flex-nowrap lg:flex-nowrap xs:flex-wrap text-[17px] leading-[30px] sm:mx-3 xs:mx-1'
       >
-        <div className="personal-info bg-bigyellow mr-10 sm:w-1/3 xs:w-1/2 xl:ml-20 ">
+        <div className="personal-info bg-bigyellow mr-10 sm:w-1/3 xs:w-cd xl:ml-20 ">
           <img 
             src="/Portfolio/mypic.png"
             alt="Your Name"
             className="profile-pic"
           />
-          <h1 className="text-primary">Yixin Zhao</h1>
-          <h1 className="text-primary">(Fiona)</h1>
+          <div>
+            <h1 className="text-primary">Yixin Zhao</h1>
+            <h1 className="text-primary">(Fiona)</h1>
+          </div>
         </div>
-        <div className="flex-col lg:mx-10 xl:ml-0 font-body tracking-wide">
+        <div className="flex-col lg:mx-10 xl:ml-0 font-body tracking-wide xs:text-[15px] sm:text-[15px] text-[16px]">
           <div className=" xl:ml-0 xl:mr-20">
             <p>I'm a Computer Science graduate from the University of Central Florida with a strong foundation in software development and AI. From building web apps with React to training models with TensorFlow, I love turning ideas into impactful tech.</p>
             {/* <p>I'm experienced in Java, Python, C++, and JavaScript, with hands-on work in full-stack development, machine learning, and robotics. From building web apps with React to training models with TensorFlow, I love turning ideas into impactful tech.</p> */}
             <p>I'm currently seeking a full-time software engineering role where I can grow and contribute to meaningful projects. Take a look around — I’d love to connect!</p>
           </div>
-          <div className="flex py-4 gap-4 font-body body-lowercase">
+          <div className="flex py-4 gap-3 font-body body-lowercase">
             <Button
             label="LinkedIn"
             href="https://www.linkedin.com/in/yixin-zhao-/"

@@ -10,6 +10,15 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
 #root {
   background-color: #000000;
   color: #ffffff;
@@ -17,6 +26,13 @@
   scroll-behavior: smooth;
   color-scheme: dark;
   width: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
 }
 
 .computers-canvas {
@@ -229,22 +245,31 @@
   text-align: center;
   align-items: center;
   padding: 1rem;
-  min-width: 15rem;
+  min-width: 12rem;
   max-width: 15rem;
   border-radius: 10px;
   margin-bottom: 1.5rem;
 }
 .profile-pic {
-  width: 308rem;
+  width: 30rem;
   height: 150px;
   border-radius: 15%;
   object-fit: cover;
   margin-bottom: 1rem;
 }
+@media screen and (max-width: 640px) {
+  .profile-pic {
+    width: 15rem;
+    height: 7.5rem;
+    
+    padding-top: 12px;
+  }
+  .personal-info {
+    width: 15rem;
+    height: 9rem;
+    display: flex;
+    align-items: center;
 
-body {
-  margin: 0;
-  display: flex;
-  min-width: 320px;
-  min-height: 100vh;
+  }
+  
 }

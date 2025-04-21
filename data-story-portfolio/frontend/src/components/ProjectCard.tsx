@@ -85,23 +85,11 @@ const ProjectCard = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <h2 className="text-mywhite font-black md:text-[60px] mt-20 xl:ml-0 sm:text-[50px] sm:ml-3 xs:text-[40px] text-[30px] xs:ml-3">PROJECTS</h2>
+        <h2 className="text-mywhite font-black md:text-[60px] mt-10 sm:mt-20 xl:ml-0 sm:text-[50px] sm:ml-3 xs:text-[40px] text-[30px] xs:ml-3">PROJECTS</h2>
       </motion.div>
 
-      <div className='w-full flex'>
-        <motion.p
-          variants={fadeIn("", "", 0.1, 1)}
-          className='mt-3 text-secondary text-[17px] max-w-3xl leading-[30px] font-body tracking-wide xl:mx-0 sm:mx-3 xs:mx-3'
-        >
-          Following projects showcases my skills and experience through
-          real-world examples of my work. Each project is briefly described with
-          links to code repositories. It reflects my
-          ability to solve complex problems, work with different technologies,
-          and manage projects effectively.
-        </motion.p>
-      </div>
 
-      <div className='mt-20 w-full px-4 flex flex-wrap gap-7 justify-center'>
+      <div className='mt-10 sm:mt-20 w-full px-4 flex flex-wrap gap-7 justify-center'>
         {projects.map((project, index) => (
           <ProjectCards key={`project-${index}`} index={index} {...project} />
         ))}

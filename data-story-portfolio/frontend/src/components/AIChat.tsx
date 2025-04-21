@@ -39,7 +39,7 @@ const AIChat = () => {
   
       <motion.div
         variants={fadeIn("", "", 0.1, 1)}
-        className="mt-20 mb-48 min-h-80 text-secondary text-[17px] leading-[30px] px-4"
+        className="mt-10 sm:mt-20 mb-24 sm:mb-48 min-h-80 text-secondary text-[17px] leading-[30px] px-4"
       >
         <div className="bg-tertiary p-8 rounded-2xl shadow-bigyellow shadow-md w-full max-w-4xl mx-auto">
           <div className="flex flex-col sm:flex-row gap-4 sm:items-stretch items-center">

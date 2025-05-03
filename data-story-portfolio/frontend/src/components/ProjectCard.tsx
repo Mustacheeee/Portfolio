@@ -14,16 +14,14 @@ interface Tag {
 interface ProjectProps {
   index: number;
   name: string;
-  description: string;
   tags: Tag[];
   image: string;
-  source_code_link: string;
+  source_code_link?: string;
 }
 
 const ProjectCards = ({
   index,
   name,
-  description,
   tags,
   image,
   source_code_link,
@@ -63,19 +61,20 @@ const ProjectCards = ({
           }} 
         />
 
-        {/* Hover Overlay with GitHub Icon */}
-        <div className="absolute top-[120px] left-0 h-[calc(100%-120px)] w-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 z-[3]">
-          <div 
-            onClick={() => window.open(source_code_link, "_blank")}
-            className="cursor-pointer hover:scale-110 transition-transform"
-          >
-            <img
-              src={github}
-              alt="source code"
-              className="h-[3em] w-[3em] bg-mywhite/30 rounded-full p-1"
-            />
+        {source_code_link && (
+          <div className="absolute top-[120px] left-0 h-[calc(100%-120px)] w-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 z-[3]">
+            <div 
+              onClick={() => window.open(source_code_link, "_blank")}
+              className="cursor-pointer hover:scale-110 transition-transform"
+            >
+              <img
+                src={github}
+                alt="source code"
+                className="h-[3em] w-[3em] bg-mywhite/30 rounded-full p-1"
+              />
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </motion.div>
   );

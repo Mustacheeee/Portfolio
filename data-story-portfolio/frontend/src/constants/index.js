@@ -23,6 +23,8 @@ import rockpet from "../assets/rockpet.png";
 import bereal from "../assets/bereal.png";
 import tripguide from "../assets/tripguide.png";
 import threjs from "../assets/tech/threjs.png";
+import db from "../assets/DB.png";
+import np from "../assets/imgdetct.png";
 
 const navLinks = [
   {
@@ -136,8 +138,8 @@ const technologies = [
 const projects = [
   {
     name: "Rock Pet",
-    description:
-      "Rock Pets is a playful web project designed as a creative exploration of web development and design.",
+    // description:
+    //   "Rock Pets is a playful web project designed as a creative exploration of web development and design.",img
     tags: [
       {
         name: "#HTML",
@@ -158,8 +160,8 @@ const projects = [
   },
   {
     name: "BeReal",
-    description:
-      "Instaparse is a social media-inspired app that allows users to sign up, log in, and share photos while ensuring a unique engagement experience.",
+    // description:
+    //   "Instaparse is a social media-inspired app that allows users to sign up, log in, and share photos while ensuring a unique engagement experience.",
     tags: [
       {
         name: "#Swift",
@@ -169,6 +171,44 @@ const projects = [
     image: bereal,
     source_code_link: "https://github.com/Mustacheeee/BeReal",
   },
+  {
+    name: "Horror Game",
+    tags: [
+      {
+        name: "#C#",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "#Unity",
+        color: "green-text-gradient",
+      },
+      {
+        name: "#Blender",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: db,
+  },
+  {
+    name: "Image Filter and Object Detection",
+    tags: [
+      {
+        name: "#Numpy",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "#scikit-image",
+        color: "green-text-gradient",
+      },
+      {
+        name: "#OpenCV",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: np,
+    source_code_link: "https://github.com/Mustacheeee/img-filtering-practice",
+  },
+
 ];
 
 export { services, technologies, projects, navLinks };

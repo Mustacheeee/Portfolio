@@ -113,7 +113,7 @@ const PersonalInfo = () => {
         </div>
         <div className="flex-col lg:mx-10 xl:ml-0 font-body tracking-wide xs:text-[15px] sm:text-[15px] text-[16px]">
           <div className=" xl:ml-0 xl:mr-20">
-            <p>I'm a Computer Science graduate from the University of Central Florida with a strong foundation in software development and AI. From building web apps with React to training models with TensorFlow, I love turning ideas into impactful tech.</p>
+            <p>Recent Computer Science graduate from the University of Central Florida with a strong foundation in software development and AI. From building web apps with React to training maching learning models, I love turning ideas into impactful tech.</p>
             {/* <p>I'm experienced in Java, Python, C++, and JavaScript, with hands-on work in full-stack development, machine learning, and robotics. From building web apps with React to training models with TensorFlow, I love turning ideas into impactful tech.</p> */}
             <p>I'm currently seeking a full-time software engineering role where I can grow and contribute to meaningful projects. Take a look around — I’d love to connect!</p>
           </div>

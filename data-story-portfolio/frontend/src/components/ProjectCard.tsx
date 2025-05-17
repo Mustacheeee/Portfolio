@@ -59,7 +59,14 @@ const ProjectCards = ({
             backgroundSize: "contain",
             backgroundRepeat: "no-repeat",
           }} 
-        />
+        >
+          <img
+            src={image}
+            alt={`${name} project screenshot`}
+            className="hidden"
+            loading="lazy"
+          />
+        </div>
 
         {source_code_link && (
           <div className="absolute top-[120px] left-0 h-[calc(100%-120px)] w-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 z-[3]">
@@ -71,6 +78,7 @@ const ProjectCards = ({
                 src={github}
                 alt="source code"
                 className="h-[3em] w-[3em] bg-mywhite/30 rounded-full p-1"
+                loading="lazy"
               />
             </div>
           </div>
@@ -86,7 +94,6 @@ const ProjectCard = () => {
       <motion.div variants={textVariant()}>
         <h2 className="text-mywhite font-black md:text-[60px] mt-10 sm:mt-20 xl:ml-0 sm:text-[50px] sm:ml-3 xs:text-[40px] text-[30px] xs:ml-3">PROJECTS</h2>
       </motion.div>
-
 
       <div className='mt-10 sm:mt-20 w-full px-4 flex flex-wrap gap-7 justify-center'>
         {projects.map((project, index) => (

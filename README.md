@@ -1,42 +1,57 @@
-# 💼 Fiona Zhao's Portfolio
+# Fiona Zhao's Portfolio
 
-Welcome to the personal portfolio of **Yixin Zhao (Fiona)** — a full-stack developer with a passion for software engineering, AI, and web technologies.
+Personal portfolio site for **Yixin Zhao (Fiona)** — full-stack developer focused on software engineering, AI, and the web.
 
-🌐 [Visit Website](https://mustacheeee.github.io/Portfolio/)
-
----
-
-## ✨ Features
-
-- ⚙️ **AI Chat Assistant**  
-  Ask Fiona anything — powered by OpenAI and custom personal data.
-
-- 🖥️ **Responsive Design**  
-  Clean and interactive UI built with React, Tailwind CSS, and Framer Motion.
-
-- 📄 **Resume Download**  
-  Easily download Fiona’s latest resume in PDF format.
-
-- 🔁 **Live Scroll Velocity Text**  
-  Smooth scrolling titles to showcase skills and titles.
+**Live site:** [mustacheeee.github.io/Portfolio](https://mustacheeee.github.io/Portfolio/)
 
 ---
 
-## 🧠 Tech Stack
+## Description
 
-### Frontend:
-- React (Vite)
-- Tailwind CSS
-- Framer Motion
-- TypeScript
-- JavaScript
+This repository contains a production-ready, full-stack portfolio: a React (Vite) frontend with animated UI, a 3D hero scene (Three.js), and an AI chat assistant backed by a FastAPI service and the OpenAI API. Content includes projects, skills, timeline, contact, and a downloadable resume. The app is deployed on GitHub Pages with the API hosted on Render.
 
-### Backend:
-- FastAPI
-- OpenAI API
-- Python
-- Render for hosting
+**Status:** **Complete** — shipped and live; maintained as needed.
 
-### Deployment:
-- **Frontend**: GitHub Pages
-- **Backend**: Render (FastAPI REST API)
+---
+
+## Features
+
+- **AI chat assistant** — Ask questions powered by OpenAI and custom context.
+- **Responsive UI** — React, Tailwind CSS, and Framer Motion.
+- **Resume download** — PDF resume from the site.
+- **Scroll-driven motion** — Animated headings and smooth section transitions.
+- **3D landing** — Interactive Three.js scene on the hero section.
+
+---
+
+## Tech stack
+
+| Layer | Technologies |
+|--------|----------------|
+| **Frontend** | React (Vite), TypeScript, Tailwind CSS, Framer Motion, Three.js / React Three Fiber |
+| **Backend** | FastAPI, Python, OpenAI API |
+| **Hosting** | GitHub Pages (frontend), Render (API) |
+
+---
+
+## Repository layout
+
+```
+data-story-portfolio/
+├── frontend/   # Vite + React app
+├── backend/    # FastAPI service for AI chat
+└── shared/     # Shared data assets
+```
+
+---
+
+## Local development
+
+**Frontend** (from `data-story-portfolio/frontend`):
+
+```bash
+npm install
+npm start
+```
+
+**Backend** (from `data-story-portfolio/backend`): create a `.env` with `OPENAI_API_KEY`, install dependencies (`pip install -r requirements.txt`), then run `python main.py` (serves on port 8000).

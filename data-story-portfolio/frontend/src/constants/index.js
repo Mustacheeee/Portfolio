@@ -25,6 +25,8 @@ import tripguide from "../assets/tripguide.png";
 import threjs from "../assets/tech/threjs.png";
 import db from "../assets/DB.png";
 import np from "../assets/imgdetct.png";
+import safelinc from "../assets/safelinc.png";
+import menuTranslatorCover from "../assets/menu-translator-cover.png";
 
 const navLinks = [
   {
@@ -137,78 +139,82 @@ const technologies = [
 
 const projects = [
   {
-    name: "Rock Pet",
-    // description:
-    //   "Rock Pets is a playful web project designed as a creative exploration of web development and design.",img
+    name: "SafeLINC",
+    description:
+      "A HIPAA-compliant mobile platform for therapists and adolescent clients to document sessions, track therapeutic progress, and stay aligned on care goals—with a strong emphasis on early support and suicide prevention for teens.",
     tags: [
-      {
-        name: "#HTML",
-        color: "blue-text-gradient",
-        background: "black",
-      },
-      {
-        name: "#CSS",
-        color: "green-text-gradient",
-      },
-      {
-        name: "#JavaScript",
-        color: "pink-text-gradient",
-      },
+      { name: "React Native", color: "blue-text-gradient" },
+      { name: "Expo", color: "green-text-gradient" },
+      { name: "JavaScript", color: "pink-text-gradient" },
+      { name: "AWS Cognito", color: "blue-text-gradient" },
+      { name: "AppSync (GraphQL)", color: "green-text-gradient" },
+      { name: "Lambda", color: "pink-text-gradient" },
+      { name: "Amazon Aurora", color: "blue-text-gradient" },
+    ],
+    image: safelinc,
+  },
+  {
+    name: "Menu Translator",
+    description:
+      "A mobile ordering companion that translates real-world menus and guides non-native speakers through browsing and checkout—so travelers can order with confidence abroad.",
+    tags: [
+      { name: "Flutter", color: "blue-text-gradient" },
+      { name: "Dart", color: "green-text-gradient" },
+      { name: "Supabase", color: "pink-text-gradient" },
+      { name: "PostgreSQL", color: "blue-text-gradient" },
+      { name: "OpenAI API (GPT-4o-mini)", color: "green-text-gradient" },
+      { name: "Edge Functions", color: "pink-text-gradient" },
+      { name: "AWS S3", color: "blue-text-gradient" },
+      { name: "Docker", color: "green-text-gradient" },
+    ],
+    image: menuTranslatorCover,
+    demo_video: "/videos/menu-translator-demo.mp4",
+  },
+  {
+    name: "Rock Pet",
+    description:
+      "A playful web project exploring creative front-end development — interactive pet characters built with vanilla HTML, CSS, and JavaScript.",
+    tags: [
+      { name: "HTML", color: "blue-text-gradient" },
+      { name: "CSS", color: "green-text-gradient" },
+      { name: "JavaScript", color: "pink-text-gradient" },
     ],
     image: rockpet,
     source_code_link: "https://github.com/Mustacheeee/Rock-pet",
   },
   {
-    name: "BeReal",
-    // description:
-    //   "Instaparse is a social media-inspired app that allows users to sign up, log in, and share photos while ensuring a unique engagement experience.",
+    name: "BeReal Clone",
+    description:
+      "A BeReal-inspired iOS app with user authentication, photo sharing, and timed engagement mechanics built natively in Swift.",
     tags: [
-      {
-        name: "#Swift",
-        color: "blue-text-gradient",
-      },
+      { name: "Swift", color: "blue-text-gradient" },
     ],
     image: bereal,
     source_code_link: "https://github.com/Mustacheeee/BeReal",
   },
   {
     name: "Horror Game",
+    description:
+      "A first-person horror game featuring custom 3D environments modeled in Blender and scripted gameplay mechanics in Unity.",
     tags: [
-      {
-        name: "#C#",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "#Unity",
-        color: "green-text-gradient",
-      },
-      {
-        name: "#Blender",
-        color: "pink-text-gradient",
-      },
+      { name: "C#", color: "blue-text-gradient" },
+      { name: "Unity", color: "green-text-gradient" },
+      { name: "Blender", color: "pink-text-gradient" },
     ],
     image: db,
   },
   {
-    name: "Image Filter and Object Detection",
+    name: "Image Filter & Detection",
+    description:
+      "An image processing pipeline for applying filters and detecting objects using NumPy, scikit-image, and OpenCV.",
     tags: [
-      {
-        name: "#Numpy",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "#scikit-image",
-        color: "green-text-gradient",
-      },
-      {
-        name: "#OpenCV",
-        color: "pink-text-gradient",
-      },
+      { name: "NumPy", color: "blue-text-gradient" },
+      { name: "scikit-image", color: "green-text-gradient" },
+      { name: "OpenCV", color: "pink-text-gradient" },
     ],
     image: np,
     source_code_link: "https://github.com/Mustacheeee/img-filtering-practice",
   },
-
 ];
 
 export { services, technologies, projects, navLinks };

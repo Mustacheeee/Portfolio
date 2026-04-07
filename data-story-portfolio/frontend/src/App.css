@@ -1,43 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Rubik:wght@300;400;500;600&display=swap');
 
-.rubik-mono-one-regular {
-  font-family: "Rubik Mono One", monospace;
-  font-weight: 400;
-  font-style: normal;
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-html, body, #root {
-  width: 100vw;
+html {
   overflow-x: hidden;
 }
 
-#root {
-  background-color: #000000;
-  color: #ffffff;
-  font-family: "Rubik Mono One", monospace;
-  scroll-behavior: smooth;
-  color-scheme: dark;
-  width: 100%;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
   margin: 0;
-  display: flex;
   min-width: 320px;
   min-height: 100vh;
 }
 
-.computers-canvas {
-  size: 30%;
+#root {
+  background-color: #050505;
+  color: #ebe1d7;
+  font-family: "Rubik", system-ui, sans-serif;
+  color-scheme: dark;
+  width: 100%;
+  overflow-x: hidden;
 }
+
 .hash-span {
   margin-top: -100px;
   padding-bottom: 100px;
@@ -45,98 +42,54 @@ body {
 }
 
 .black-gradient {
-  background: #000000;
+  background: #050505;
   background: linear-gradient(
-    90deg, 
-    #1a1a1a 0%, 
-    #121212 25%, 
-    #000000 50%, 
-    #1e1e1e 75%, 
-    #121212 100%
+    135deg,
+    #1a1a1a 0%,
+    #0d0d0d 50%,
+    #1a1a1a 100%
   );
-  background-size: 200% 200%;
-  animation: gradientFlow 15s ease infinite;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
-
-@keyframes gradientFlow {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
 }
 
 .orange-text-gradient {
-  background: #f12711; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    #f12711,
-    #f5af19
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #f12711,
-    #f5af19
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to top, #f12711, #f5af19);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .green-text-gradient {
-  background: #11998e; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    #11998e,
-    #38ef7d
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #11998e,
-    #38ef7d
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to top, #11998e, #38ef7d);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .blue-text-gradient {
-  /* background: -webkit-linear-gradient(#eee, #333); */
-  background: #56ccf2; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    #2f80ed,
-    #56ccf2
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #2f80ed,
-    #56ccf2
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to top, #2f80ed, #56ccf2);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .pink-text-gradient {
-  background: #ec008c; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    #ec008c,
-    #fc6767
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #ec008c,
-    #fc6767
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to top, #ec008c, #fc6767);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-/* canvas- styles */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 .canvas-loader {
   font-size: 10px;
   width: 1em;
@@ -223,53 +176,4 @@ body {
       -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.5),
       -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
   }
-}
-
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.personal-info {
-  text-align: center;
-  align-items: center;
-  padding: 1rem;
-  min-width: 12rem;
-  max-width: 15rem;
-  border-radius: 10px;
-  margin-bottom: 1.5rem;
-}
-.profile-pic {
-  width: 30rem;
-  height: 150px;
-  border-radius: 15%;
-  object-fit: cover;
-  margin-bottom: 1rem;
-}
-@media screen and (max-width: 640px) {
-  .profile-pic {
-    width: 15rem;
-    height: 7.5rem;
-    
-    padding-top: 12px;
-  }
-  .personal-info {
-    width: 15rem;
-    height: 9rem;
-    display: flex;
-    align-items: center;
-
-  }
-  
 }

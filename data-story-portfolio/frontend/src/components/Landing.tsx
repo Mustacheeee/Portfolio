@@ -5,23 +5,20 @@ import { ComputersCanvas } from "./canvas";
 import { SectionWrapper } from "src/hoc/index.js";
 
 const Landing = () => {
-
   return (
-    <section className={`relative w-full h-screen mx-auto`}>
+    <section className='relative w-full h-screen mx-auto'>
       <div
-        className={`inset-0 top-[120px]  max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}
+        className={`inset-0 top-[120px] max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}
       >
       </div>
 
       <ComputersCanvas />
 
-      <div className='absolute xs:bottom-25 bottom-32 w-full flex justify-center items-center'>
-        <a href='#personalInfo'>
+      {/* <div className='absolute bottom-8 sm:bottom-10 w-full flex justify-center items-center'>
+        <a href='#personalInfo' aria-label="Scroll to about section">
           <div className='w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2'>
             <motion.div
-              animate={{
-                y: [0, 24, 0],
-              }}
+              animate={{ y: [0, 24, 0] }}
               transition={{
                 duration: 1.5,
                 repeat: Infinity,
@@ -31,7 +28,8 @@ const Landing = () => {
             />
           </div>
         </a>
-      </div>
+      </div> */}
+      
     </section>
   );
 };

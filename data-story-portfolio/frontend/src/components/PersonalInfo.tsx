@@ -1,18 +1,17 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { SectionWrapper } from "src/hoc/index.js";
-import { fadeIn, textVariant, } from "../constants/motion.js";
-import styled from 'styled-components';
+import { fadeIn, textVariant } from "../constants/motion.js";
 import linkedin from "../assets/linkedin-brands.svg";
 import github from "../assets/github-brands.svg";
 import download from "../assets/download-solid.svg";
+import mypic from "../assets/mypic.png";
 
 interface ButtonProps {
   label?: string;
   href: string;
   target?: string;
   svg?: string;
-  onClick?: () => void;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -20,144 +19,117 @@ const Button: React.FC<ButtonProps> = ({
   href,
   target = '_self',
   svg,
-  onClick
 }) => {
   return (
-    <div className="inline-block">
-      <a 
-        href={href}
-        target={target}
-        onClick={onClick}
+    <motion.a
+      href={href}
+      target={target}
+      rel={target === '_blank' ? 'noopener noreferrer' : undefined}
+      whileHover={{ y: -2 }}
+      whileTap={{ y: 1, scale: 0.97 }}
+      transition={{ type: "tween", duration: 0.15, ease: [0.25, 1, 0.5, 1] }}
+      className="
+        relative flex items-center justify-center gap-2
+        px-4 py-3 min-h-[44px]
+        text-bigyellow text-sm font-body
+        border-none rounded-md
+        outline outline-2 outline-tertiary
+        cursor-pointer overflow-hidden
+        transition-[color,box-shadow,outline-color] duration-300
+        hover:text-highlight
+        hover:outline-highlight/50
+        hover:shadow-[0_4px_24px_-4px_rgba(251,236,4,0.2)]
+        focus-visible:ring-2 focus-visible:ring-highlight focus-visible:ring-offset-2 focus-visible:ring-offset-primary
+        group
+      "
+    >
+      {svg && (
+        <img src={svg} alt="" className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" aria-hidden="true" />
+      )}
+      <span className="relative z-10">{label}</span>
+      <span
         className="
-          relative 
-          flex items-center justify-center 
-          gap-2 
-          px-4 py-[0.4em] 
-          text-[#F8DF51] 
-          text-[15px] 
-          border-none 
-          rounded-[5px] 
-          outline outline-2 outline-[#979c04] 
-          cursor-pointer 
-          overflow-hidden 
-          transition-all duration-1000 
-          hover:text-[#fbec04] 
-          hover:scale-110 
-          hover:shadow-[4px_5px_17px_-4px_#FBEC04]
-          group
+          absolute left-[-50px] top-0 w-0 h-full
+          bg-tertiary -z-10
+          transition-all duration-500
+          group-hover:w-[250%]
+          skew-x-[45deg]
         "
-      >
-        {svg && (
-          <img 
-            src={svg} 
-            alt="icon" 
-            className="w-6 h-6"
-          />
-        )}
-        <span className="relative z-10">{label}</span>
-        
-        {/* Pseudo-element background effect */}
-        <span 
-          className="
-            absolute 
-            left-[-50px] 
-            top-0 
-            w-0 
-            h-full 
-            bg-[#979c04] 
-            -z-10 
-            transition-all 
-            duration-1000 
-            group-hover:w-[250%] 
-            skew-x-[45deg]
-          "
-        />
-      </a>
-    </div>
+        aria-hidden="true"
+      />
+    </motion.a>
   );
 };
 
-const StyledWrapper = styled.div`
-  display: inline-block;
-`;
-
 const PersonalInfo = () => {
-
-  // Add TypeScript interface for the service props
-  interface ServiceProps {
-    index: number;
-    title: string;
-    icon: string;
-  }
-
   return (
     <>
       <motion.div variants={textVariant()}>
-        <h2 className="text-mywhite font-black mt-16 md:text-[60px] xl:ml-0 sm:text-[50px] sm:ml-3 xs:text-[40px] text-[30px] xs:ml-3">Overview</h2>
+        <h2 className="font-title text-mywhite mt-3 text-3xl xs:text-4xl sm:text-5xl md:text-6xl leading-none">
+          Overview
+        </h2>
       </motion.div>
 
-      <motion.p
+      <motion.div
         variants={fadeIn("", "", 0.1, 1)}
-        className='mt-4 flex text-secondary xl:flex-nowrap lg:flex-nowrap xs:flex-wrap text-[17px] leading-[30px] sm:mx-3 xs:mx-1'
+        className='mt-6 flex text-secondary lg:flex-nowrap flex-wrap gap-8 sm:gap-10'
       >
-        <div className="personal-info bg-bigyellow mr-10 sm:w-1/3 xs:w-cd xl:ml-20 ">
-          <img 
-            src="/Portfolio/mypic.png"
-            alt="Your Name"
-            className="profile-pic"
+        <div className="flex flex-col items-center text-center bg-bigyellow p-4 rounded-xl min-w-[12rem] max-w-[15rem] shrink-0 mx-auto lg:mx-0">
+          <img
+            src={mypic}
+            alt="Yixin Zhao (Fiona)"
+            className="w-48 sm:w-60 h-auto rounded-xl object-cover mb-3"
           />
           <div>
-            <h1 className="text-primary">Yixin Zhao</h1>
-            <h1 className="text-primary">(Fiona)</h1>
+            <h3 className="text-primary font-title text-base">Yixin Zhao</h3>
+            <p className="text-primary font-title text-sm">(Fiona)</p>
           </div>
         </div>
-        <div className="flex-col lg:mx-10 xl:ml-0 font-body tracking-wide xs:text-[15px] sm:text-[15px] text-[16px]">
-          <div className=" xl:ml-0 xl:mr-20">
-            <p>Recent Computer Science graduate from the University of Central Florida with a strong foundation in software development and AI. From building web apps with React to training maching learning models, I love turning ideas into impactful tech.</p>
-            {/* <p>I'm experienced in Java, Python, C++, and JavaScript, with hands-on work in full-stack development, machine learning, and robotics. From building web apps with React to training models with TensorFlow, I love turning ideas into impactful tech.</p> */}
-            <p>I'm currently seeking a full-time software engineering role where I can grow and contribute to meaningful projects. Take a look around — I’d love to connect!</p>
-          </div>
-          <div className="flex py-4 gap-3 font-body body-lowercase">
-            <Button
-            label="LinkedIn"
-            href="https://www.linkedin.com/in/yixin-zhao-/"
-            svg={linkedin}
-            target="_blank"
-            />
-            <Button
-            label="GitHub"
-            href="https://github.com/Mustacheeee"
-            svg={github}
-            target="_blank"
-            />
-            <Button
-            label="Resume"
-            href="/Portfolio/resume.pdf"
-            svg={download}
-            target="_blank"
-            />
-          </div>
-        </div>
-      </motion.p>
 
-      <div className="mt-10">
+        <div className="flex flex-col font-body tracking-wide text-base leading-relaxed">
+          <div className="xl:mr-20">
+            <p>Recent Computer Science graduate from the University of Central Florida with a strong foundation in software development and AI. From building web apps with React to training machine learning models, I love turning ideas into impactful tech.</p>
+            <p className="mt-4">I'm currently seeking a full-time software engineering role where I can grow and contribute to meaningful projects. Take a look around — I'd love to connect!</p>
+          </div>
+          <div className="flex flex-wrap py-5 gap-3">
+            <Button
+              label="LinkedIn"
+              href="https://www.linkedin.com/in/yixin-zhao-/"
+              svg={linkedin}
+              target="_blank"
+            />
+            <Button
+              label="GitHub"
+              href="https://github.com/Mustacheeee"
+              svg={github}
+              target="_blank"
+            />
+            <Button
+              label="Resume"
+              href="/Portfolio/resume.pdf"
+              svg={download}
+              target="_blank"
+            />
+          </div>
+        </div>
+      </motion.div>
+
+      <div className="mt-10 overflow-hidden">
         <ScrollVelocity
-          texts={[' Full-Stack Developer ', ' Front-End  Back-end ',]} 
-          velocity={40} 
+          texts={[' Full-Stack Developer ', ' Front-End  Back-end ']}
+          velocity={40}
           className="custom-scroll-text"
         />
         <ScrollVelocity
-          texts={[' AI Explorer ', '  Data Enthusiast  ',]} 
-          velocity={40} 
+          texts={[' AI Explorer ', '  Data Enthusiast  ']}
+          velocity={40}
           className="custom-scroll-text"
         />
       </div>
-
     </>
   );
 };
 
-// Scroll velocity component
 import { useRef, useLayoutEffect, useState } from "react";
 import {
   useScroll,
@@ -312,7 +284,7 @@ export const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
         style={parallaxStyle}
       >
         <motion.div
-          className={`${scrollerClassName} flex whitespace-nowrap text-center font-sans text-3xl font-bold tracking-[-0.02em] drop-shadow md:text-[3rem] md:leading-[4rem]`}
+          className={`${scrollerClassName} flex whitespace-nowrap text-center font-body text-2xl sm:text-3xl md:text-[3rem] font-bold tracking-tight drop-shadow md:leading-[4rem]`}
           style={{ x, ...scrollerStyle }}
         >
           {spans}
@@ -327,8 +299,8 @@ export const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
         <VelocityText
           key={index}
           className={`${className} ${
-            index === 0 ? 'text-bigyellow' : 
-            index === 1 ? 'text-tertiary' : 
+            index === 0 ? 'text-bigyellow' :
+            index === 1 ? 'text-tertiary' :
             ''
           }`}
           baseVelocity={index % 2 !== 0 ? -velocity : velocity}
@@ -348,7 +320,5 @@ export const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
     </section>
   );
 };
-
-
 
 export default SectionWrapper(PersonalInfo, "personalInfo");

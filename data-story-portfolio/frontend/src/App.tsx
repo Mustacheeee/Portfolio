@@ -10,9 +10,12 @@ import Tech from './components/Tech';
 import { StarsCanvas } from './components/canvas';
 import Contact from './components/Contact';
 
+const routerBasename =
+  import.meta.env.BASE_URL.replace(/\/$/, "") || undefined;
+
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={routerBasename}>
       <div className="relative z-0 bg-primary">
         <div className='bg-welcome-pattern bg-cover bg-no-repeat bg-center'>
           <Navbar />

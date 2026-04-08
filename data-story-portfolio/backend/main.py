@@ -41,8 +41,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-HF_API_KEY = os.getenv("HF_API_KEY", "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")
-
 # --- Core Prompt Template ---
 PROMPT_TEMPLATE = """[INST]
 You are a professional AI assistant helping recruiters understand Fiona's professional profile. 

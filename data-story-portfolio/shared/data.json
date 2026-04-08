@@ -1,77 +1,89 @@
 {
-  "name": "Yixin Zhao, people call me Fiona",
+  "name": "Yixin (Fiona) Zhao",
   "location": "West Palm Beach, Florida",
+  "phone": "561-913-7733",
   "email": "yixin.fiona.zhao@gmail.com",
+  "github": "https://github.com/Mustacheeee",
+  "portfolioUrl": "https://mustacheeee.github.io/Portfolio",
   "gender": "Female (She/Her)",
-  "ethnicity": "Asian(not Hispanic or Latino) (United States)",
+  "ethnicity": "Asian (not Hispanic or Latino) (United States)",
   "race": "Asian",
   "verteranStatus": "Not a veteran",
   "disabilityStatus": "No disability",
   "education": [
     {
       "degree": "Bachelor of Science in Computer Science",
-      "university": "university of Central Florida",
+      "university": "University of Central Florida",
       "location": "Orlando, Florida",
-      "graduationYear": "December, 2024"
+      "graduationYear": "December 2024",
+      "duration": "August 2022 – December 2024"
     }
   ],
   "skills": {
-    "Programming Languages": ["Python", "JavaScript"," TypeScript","C/C++", "Java", "Swift", "CSS"],
-    "Web Development": ["HTML", "CSS", "React", "Node.js"],
-    "Data Science": ["Pandas", "NumPy", "Matplotlib"],
-    "Databases": ["MySQL", "MongoDB"],
-    "Cloud Services": ["AWS", "Google Cloud"],
-    "Machine Learning": ["TensorFlow", "PyTorch", "Keras"],
-    "Frameworks": ["React", "FastAPI"],
-    "Tools": ["Git", "Blender", "Figma", "Unity", "VS Code", "Google Colab", "Xcode"],
-    "Soft Skills": ["Teamwork", "Communication", "Problem Solving"]
+    "Programming Languages": ["Python", "JavaScript", "TypeScript", "Dart", "Swift"],
+    "AI & LLM": ["OpenAI API", "Prompt Engineering", "LLM Integration", "MCP Workflows", "Scikit-learn"],
+    "Frontend": ["React", "Tailwind CSS", "Three.js", "Framer Motion", "UIKit", "HTML", "CSS"],
+    "Mobile Development": ["Flutter", "React Native", "Expo", "Swift"],
+    "Backend & Data": ["FastAPI", "Supabase", "PostgreSQL", "GraphQL"],
+    "Cloud & DevOps": ["Docker", "AWS S3", "AWS Lambda", "AWS Cognito", "AWS AppSync", "Amazon Aurora"],
+    "Data Science": ["Pandas", "NumPy", "Matplotlib", "Machine Learning"],
+    "Tools": ["Git", "Blender", "Figma", "Unity", "VS Code", "Google Colab", "Xcode", "Cursor"],
+    "Soft Skills": ["Teamwork", "Communication", "Problem Solving", "Leadership"]
   },
   "projects": [
     {
-      "title": "This Portfolio",
-      "description": "This portfolio is a personal project that showcases my skills and projects. It is built using React and TypeScript, demonstrating my proficiency in modern 3D web development.",
-      "technologies": ["React", "TypeScript", "CSS"]
+      "title": "InMenu",
+      "description": "Full-stack Flutter app tackling language barriers for non-English-speaking restaurant diners. Cache-first architecture with OpenAI GPT-4o-mini-powered menu translation supporting English, Spanish, and Chinese. Built on Supabase with PostgreSQL, Edge Functions, and Docker.",
+      "technologies": ["Flutter", "Dart", "Supabase", "Riverpod", "OpenAI API", "Google Places API", "PostgreSQL", "Edge Functions", "TypeScript", "Deno", "Docker", "AWS S3"]
     },
     {
-      "title": "Rock Pets Website",
-      "description": "Rock Pets is a playful web project designed as a creative exploration of web development and design. While not actively maintained for future updates, it showcases my skills in crafting engaging user experiences with a whimsical touch.",
-      "technologies": ["HTML", "CSS", "JavaScript"]
+      "title": "Portfolio Website",
+      "description": "Production-ready full-stack portfolio with React, TypeScript, and Vite. Features an OpenAI API-powered chat assistant, interactive Three.js 3D hero scene, and Framer Motion scroll-driven animations. FastAPI backend. Built with Cursor and MCPs.",
+      "technologies": ["React", "TypeScript", "Vite", "Tailwind CSS", "Framer Motion", "Three.js", "FastAPI", "Python", "OpenAI API"]
     },
     {
-      "name": "AI-Powered Resume Analyzer",
-      "description": "A natural language processing system for resume analysis",
-      "technologies": ["Python", "spaCy", "React"],
-      "achievement": "Improved accuracy by 30%"
+      "title": "SafeLINC",
+      "description": "HIPAA-compliant suicide prevention mobile app developed at UCF STIR Lab. Frontend lead on Android using React Native and Expo, with AWS AppSync (GraphQL) for real-time data sync and AWS Cognito for secure authentication.",
+      "technologies": ["React Native", "JavaScript", "Expo", "AWS Cognito", "AWS AppSync", "GraphQL", "AWS Lambda", "Amazon Aurora", "HIPAA Compliance"]
+    },
+    {
+      "title": "BeReal (iOS Clone)",
+      "description": "iOS application replicating BeReal's core dual-camera capture and social feed. Built natively in Swift with UIKit, custom Camera API integration, and RESTful networking.",
+      "technologies": ["Swift", "UIKit", "iOS", "Camera API", "REST API"]
+    },
+    {
+      "title": "Price Prediction Model",
+      "description": "ML regression model for price prediction using Python, Pandas, and Scikit-learn with feature engineering, model evaluation, and hyperparameter tuning.",
+      "technologies": ["Python", "Pandas", "Scikit-learn", "Machine Learning"]
     }
   ],
   "workExperience": [
     {
-      "company": "iD Tech Camp",
-      "role": "Robotics Instructor",
-      "location": "Stanford University, California",
-      "duration": "June 2024 - August 2024",
+      "company": "Tri-State Jet Charter",
+      "role": "Ground Experience Representative / Ground Security Coordinator",
+      "location": "Charter flight operations",
+      "duration": "June 2025 – Present",
       "responsibilities": [
-        "Developed engaging lesson plans with real-world computer science applications.",
-        "Fostered collaboration, adapted to diverse learning styles, and ensured a rewarding experience.",
-        "Designed and led hands-on robotics and programming workshops for students aged 10 to 18."
+        "Lead daily screening operations for charter flights, coordinating team members to maintain regulatory compliance, safety, and efficient passenger flow.",
+        "Serve as key communication link between ground crew, flight crew, and leadership to maintain alignment and operational clarity.",
+        "Lead by example in high-pressure situations, making timely decisions that protect safety and deliver excellent customer service."
       ]
     },
     {
-      "company": "Ocean Breeze Foot Spa",
-      "role": "Service Cashier",
-      "location": "Boca Raton, Florida",
-      "duration": "May 2018 - August 2018",
+      "company": "iD Tech Camp",
+      "role": "Robotics Instructor",
+      "location": "Stanford University, California",
+      "duration": "May 2024 – August 2024",
       "responsibilities": [
-        "Facilitated communication between English-speaking clients and Chinese-speaking staff.",
-        "Assisted with client bookings, payments, and service recommendations.",
-        "Provided real-time translation during treatments to ensure customer satisfaction.",
-        "Enhanced the overall spa experience through clear and effective communication."
+        "Designed and delivered structured, engaging lesson plans making complex robotics and programming topics accessible and practical.",
+        "Managed classroom activities while maintaining a positive, collaborative learning environment.",
+        "Provided individualized support to ensure each student understood core concepts and problem-solving strategies."
       ]
     }
   ],
-  "interest": ["Drawing", "3D Modeling", "Game Development", "AI Research"],
-  "relocation" : "Open to relocation for job opportunities.",
-  "availability": "Available for internships and full-time positions starting January 2025.",
+  "interest": ["Drawing", "3D Modeling", "Game Development", "AI Research", "Full-stack and mobile development"],
+  "relocation": "Open to relocation for job opportunities.",
+  "availability": "Currently employed at Tri-State Jet Charter; open to full-time software engineering roles.",
   "languages": [
     {
       "language": "English",
@@ -82,8 +94,8 @@
       "proficiency": "Native"
     }
   ],
-  "careerGoals": "I aim to become a full-stack developer specializing in AI-driven applications.",
-  "Specialize": ["Machine Learning", "Web App Development"],
+  "careerGoals": "Grow as a full-stack and mobile engineer building reliable, user-focused products—especially where AI, cloud, and polished UX meet.",
+  "Specialize": ["Full-Stack Development", "Mobile (Flutter & React Native)", "AI/LLM Integration", "Cloud (AWS)"],
   "hobbies": ["Drawing", "3D Modeling", "Game Development", "AI Research"],
   "food": ["Chinese Food", "Ice Cream", "Pizza", "Ramen", "Coffee"],
   "Sponsorship": "I would never need sponsorship"

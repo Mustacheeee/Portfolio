@@ -50,6 +50,7 @@ data-story-portfolio/
 **Frontend** (from `data-story-portfolio/frontend`):
 
 ```bash
+cd Portfolio\data-story-portfolio\frontend
 npm install
 npm start
 ```

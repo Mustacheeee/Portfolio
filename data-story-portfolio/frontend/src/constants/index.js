@@ -26,7 +26,7 @@ import threjs from "../assets/tech/threjs.png";
 import db from "../assets/DB.png";
 import np from "../assets/imgdetct.png";
 import safelinc from "../assets/safelinc.png";
-import menuTranslatorCover from "../assets/menu-translator-cover.png";
+import tablevox from "../assets/tablevox.jpg";
 
 const navLinks = [
   {
@@ -154,21 +154,22 @@ const projects = [
     image: safelinc,
   },
   {
-    name: "Menu Translator",
+    name: "TableVox",
+    subtitle: "AI menu translator app",
     description:
-      "A mobile ordering companion that translates real-world menus and guides non-native speakers through browsing and checkout—so travelers can order with confidence abroad.",
+      "A cross-platform iOS/Android app that turns a photo of a foreign-language menu into an interlinear translation across 12 languages, then composes a point-and-show order card for the waiter — powered by a serverless GPT-4o OCR and cache-first translation pipeline with a 12-language allergen highlighter.",
     tags: [
       { name: "Flutter", color: "blue-text-gradient" },
       { name: "Dart", color: "green-text-gradient" },
       { name: "Supabase", color: "pink-text-gradient" },
-      { name: "PostgreSQL", color: "blue-text-gradient" },
-      { name: "OpenAI API (GPT-4o-mini)", color: "green-text-gradient" },
-      { name: "Edge Functions", color: "pink-text-gradient" },
-      { name: "AWS S3", color: "blue-text-gradient" },
-      { name: "Docker", color: "green-text-gradient" },
+      { name: "PostgreSQL (RLS)", color: "blue-text-gradient" },
+      { name: "TypeScript", color: "green-text-gradient" },
+      { name: "Deno", color: "pink-text-gradient" },
+      { name: "GPT-4o Vision", color: "blue-text-gradient" },
+      { name: "Riverpod", color: "green-text-gradient" },
     ],
-    image: menuTranslatorCover,
-    demo_video: "/videos/menu-translator-demo.mp4",
+    image: tablevox,
+    live_site_link: "https://www.tablevox.app/",
   },
   {
     name: "Rock Pet",

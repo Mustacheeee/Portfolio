@@ -58,7 +58,7 @@ const AIChat = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <h2 className="text-mywhite mt-16 text-center md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">
+        <h2 className="font-title text-mywhite mt-16 text-center text-2xl xs:text-3xl sm:text-5xl md:text-6xl leading-tight">
           Ask Me Anything About{' '}
           <span className='text-highlight'>Fiona</span>
         </h2>
@@ -66,7 +66,7 @@ const AIChat = () => {
 
       <motion.div
         variants={fadeIn("", "", 0.1, 1)}
-        className="mt-10 sm:mt-20 mb-24 sm:mb-48 min-h-80 text-secondary text-base leading-relaxed px-4"
+        className="mt-10 sm:mt-20 mb-24 sm:mb-48 min-h-[20rem] text-secondary text-base leading-relaxed px-0 sm:px-4"
       >
         <div className="bg-tertiary p-6 sm:p-8 rounded-2xl shadow-bigyellow/10 shadow-lg w-full max-w-4xl mx-auto border border-mywhite/5">
           <div className="flex flex-col sm:flex-row gap-4 sm:items-stretch items-stretch">

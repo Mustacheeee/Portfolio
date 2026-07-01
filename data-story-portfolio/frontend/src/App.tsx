@@ -17,7 +17,8 @@ function App() {
   return (
     <BrowserRouter basename={routerBasename}>
       <div className="relative z-0 bg-primary">
-        <div className='bg-welcome-pattern bg-cover bg-no-repeat bg-center'>
+        {/* welcome art is desktop-only; phones get a plain hero */}
+        <div className='md:bg-welcome-pattern md:bg-cover md:bg-no-repeat md:bg-center'>
           <Navbar />
           <Landing />
         </div>
@@ -28,7 +29,7 @@ function App() {
         </div>
         <ProjectCard />
         <AIChat />
-        <div className='bg-connect-pattern bg-cover bg-no-repeat bg-center'>
+        <div className='bg-connect-pattern bg-contain md:bg-cover bg-no-repeat bg-center'>
           <Contact />
         </div>
       </div>

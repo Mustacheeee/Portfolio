@@ -14,10 +14,12 @@ interface Tag {
 interface ProjectProps {
   index: number;
   name: string;
+  subtitle?: string;
   description?: string;
   tags: Tag[];
   image: string;
   source_code_link?: string;
+  live_site_link?: string;
   demo_video?: string;
   onOpenDemo?: () => void;
 }
@@ -94,6 +96,7 @@ function VideoDemoModal({
           className="absolute top-3 right-3 z-10 rounded-full bg-black/70 text-mywhite w-10 h-10 flex items-center justify-center font-body text-xl leading-none hover:bg-black/90 transition-colors border border-mywhite/20"
           aria-label="Close video"
         >
+          &times;
         </button>
         <video
           ref={videoRef}
@@ -147,12 +150,60 @@ function SourceLink({
   );
 }
 
+function SiteLink({
+  href,
+  label,
+  name,
+}: {
+  href: string;
+  label: string;
+  name: string;
+}) {
+  const safe =
+    typeof href === "string" &&
+    href.trim().length > 0 &&
+    /^https?:\/\//i.test(href.trim());
+
+  if (!safe) return null;
+
+  const url = href.trim();
+
+  return (
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={(e) => e.stopPropagation()}
+      className="inline-flex items-center gap-2 mt-4 sm:mt-5 font-body text-sm text-highlight hover:text-bigyellow underline-offset-4 hover:underline transition-colors duration-200 cursor-pointer relative z-20 pointer-events-auto"
+      aria-label={`Visit the ${name} live site`}
+    >
+      <svg
+        viewBox="0 0 24 24"
+        className="w-4 h-4 sm:w-5 sm:h-5 shrink-0"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
+        <circle cx="12" cy="12" r="9" />
+        <path d="M3 12h18" />
+        <path d="M12 3c2.6 2.8 2.6 15.2 0 18M12 3c-2.6 2.8-2.6 15.2 0 18" />
+      </svg>
+      {label}
+    </a>
+  );
+}
+
 const FeaturedProject = ({
   name,
+  subtitle,
   description,
   tags,
   image,
   source_code_link,
+  live_site_link,
   demo_video,
   onOpenDemo,
 }: ProjectProps) => {
@@ -215,6 +266,11 @@ const FeaturedProject = ({
             <h3 className="font-title text-mywhite text-2xl sm:text-3xl lg:text-4xl tracking-wide mt-2 leading-tight">
               {name}
             </h3>
+            {subtitle && (
+              <p className="font-body text-sm sm:text-base text-tertiary/90 mt-2">
+                {subtitle}
+              </p>
+            )}
             {description && (
               <p className="font-body text-muted text-base leading-relaxed mt-4 max-w-[55ch]">
                 {description}
@@ -247,8 +303,15 @@ const FeaturedProject = ({
               </button>
             )}
 
-            {source_code_link ? (
-              <SourceLink href={source_code_link} label="View source" name={name} />
+            {live_site_link || source_code_link ? (
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-1">
+                {live_site_link && (
+                  <SiteLink href={live_site_link} label="Visit site" name={name} />
+                )}
+                {source_code_link && (
+                  <SourceLink href={source_code_link} label="View source" name={name} />
+                )}
+              </div>
             ) : (
               <p className="mt-5 font-body text-sm text-mywhite/40">
                 {hasDemo ? "Private repo" : "Private repository."}
@@ -264,15 +327,27 @@ const FeaturedProject = ({
 const ProjectCardItem = ({
   index,
   name,
+  subtitle,
   description,
   tags,
   image,
   source_code_link,
+  live_site_link,
   demo_video,
   onOpenDemo,
 }: ProjectProps) => {
   const hasDemo = Boolean(demo_video && onOpenDemo);
   const fullCardDemo = hasDemo && !source_code_link;
+  // A card with only a live link (no demo modal) navigates on click
+  const fullCardSite = Boolean(live_site_link) && !hasDemo && !source_code_link;
+
+  const handleCardClick = () => {
+    if (fullCardDemo) {
+      onOpenDemo?.();
+    } else if (fullCardSite && live_site_link) {
+      window.open(live_site_link, "_blank", "noopener,noreferrer");
+    }
+  };
 
   const imageVisual = (
     <>
@@ -293,8 +368,8 @@ const ProjectCardItem = ({
 
   return (
     <article
-      className={`group relative z-10 flex h-full ${fullCardDemo ? "cursor-pointer" : ""}`}
-      onClick={fullCardDemo ? onOpenDemo : undefined}
+      className={`group relative z-10 flex h-full ${fullCardDemo || fullCardSite ? "cursor-pointer" : ""}`}
+      onClick={fullCardDemo || fullCardSite ? handleCardClick : undefined}
     >
       <div className="flex flex-col h-full w-full rounded-2xl overflow-hidden border border-mywhite/10 bg-surface hover:border-mywhite/20 transition-colors duration-500">
         {hasDemo ? (
@@ -340,6 +415,12 @@ const ProjectCardItem = ({
             {name}
           </h3>
 
+          {subtitle && (
+            <p className="font-body text-sm text-tertiary/90 mt-1.5">
+              {subtitle}
+            </p>
+          )}
+
           {description && (
             <p className="font-body text-muted/80 text-sm leading-relaxed mt-3 max-w-[50ch]">
               {description}
@@ -371,8 +452,15 @@ const ProjectCardItem = ({
               </button>
             )}
 
-            {source_code_link ? (
-              <SourceLink href={source_code_link} label="View source" name={name} />
+            {live_site_link || source_code_link ? (
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-1">
+                {live_site_link && (
+                  <SiteLink href={live_site_link} label="Visit site" name={name} />
+                )}
+                {source_code_link && (
+                  <SourceLink href={source_code_link} label="View source" name={name} />
+                )}
+              </div>
             ) : (
               <p className="mt-4 font-body text-xs text-mywhite/40">
                 Private repo

@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "portfolio-frontend",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "data-story-portfolio/frontend", "run", "start"],
+      "port": 5173
+    }
+  ]
+}

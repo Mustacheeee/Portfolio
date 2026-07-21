@@ -106,7 +106,7 @@ const PersonalInfo = () => {
             />
             <Button
               label="Resume"
-              href="/Portfolio/resume.pdf"
+              href="/Portfolio/resume.html"
               svg={download}
               target="_blank"
             />
